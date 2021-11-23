@@ -1,5 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { PRODUCTS } from '../mock-products';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { PRODUCTS } from 'src/app/shared/mock-products';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 import { Product } from '../product';
 
 @Component({
@@ -8,14 +10,18 @@ import { Product } from '../product';
   styleUrls: ['./products-view.component.css']
 })
 
-export class ProductsViewComponent implements OnInit {
+export class ProductsViewComponent implements AfterViewInit  {
 
   displayedColumns: string[] = ['id', 'name', 'price'];
-  myDataArray: Product[] = PRODUCTS;
+  dataSource = new MatTableDataSource<Product>(PRODUCTS);
+
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 
 }

@@ -1,6 +1,11 @@
 <h1>Products</h1>
 
-<table mat-table [dataSource]="myDataArray" class="mat-elevation-z8">
+<p>
+  <a routerLink="/add-product">Add new product</a>
+</p>
+
+<div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!-- Position Column -->
     <ng-container matColumnDef="id">
@@ -23,4 +28,8 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-  
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons 
+  aria-label="Select page of periodic elements">
+</mat-paginator>
