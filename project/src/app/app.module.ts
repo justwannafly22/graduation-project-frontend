@@ -1,27 +1,29 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatSliderModule } from '@angular/material/slider';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductsComponent } from './products/products.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { ProductsViewComponent } from './products/products-view/products-view.component';
+import { MatTableModule } from '@angular/material/table';
+import { AddProductComponent } from './products/add-product/add-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProductsViewComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule,
+    FormsModule,
     MatToolbarModule,
-    FormsModule
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
