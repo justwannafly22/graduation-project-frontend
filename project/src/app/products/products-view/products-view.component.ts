@@ -24,4 +24,12 @@ export class ProductsViewComponent implements AfterViewInit  {
     this.dataSource.paginator = this.paginator;
   }
 
+  addProductClick(): void{
+    
+  }
+
+  openManageView(element: Product): void {
+    console.log(element);
+  }
+
 }
