@@ -3,6 +3,8 @@ import { PRODUCTS } from 'src/app/shared/mock-products';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Product } from '../product';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ManageWindowComponent } from '../manage-window/manage-window.component';
 
 @Component({
   selector: 'app-products-view',
@@ -12,24 +14,32 @@ import { Product } from '../product';
 
 export class ProductsViewComponent implements AfterViewInit  {
 
-  displayedColumns: string[] = ['id', 'name', 'price'];
+  displayedColumns: string[] = ['id', 'name', 'price', 'description'];
   dataSource = new MatTableDataSource<Product>(PRODUCTS);
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
-  constructor() { }
+  constructor(private readonly dialog: MatDialog) { }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
 
-  addProductClick(): void{
-    
-  }
-
   openManageView(element: Product): void {
-    console.log(element);
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = element;
+
+    const dialogRef = this.dialog.open(ManageWindowComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => console.log("Dialog output:", data)
+    ); 
   }
 
 }

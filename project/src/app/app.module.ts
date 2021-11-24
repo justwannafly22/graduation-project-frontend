@@ -8,23 +8,29 @@ import { ReactiveFormsModule  } from '@angular/forms';
 import { ProductsViewComponent } from './products/products-view/products-view.component';
 import { AddProductComponent } from './products/add-product/add-product.component';
 import { MaterialModule } from './shared/material.module';
-
+import { ManageWindowComponent } from './products/manage-window/manage-window.component';
+import { CloseManageWindowComponent } from './products/close-manage-window/close-manage-window.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
     ProductsViewComponent,
-    AddProductComponent
+    AddProductComponent,
+    ManageWindowComponent,
+    CloseManageWindowComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ManageWindowComponent]
 })
 export class AppModule { }

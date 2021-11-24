@@ -46,5 +46,5 @@ export class AddProductComponent {
   onSubmit(post: any) {
     this.post = post;
   }
-  
+
 }
