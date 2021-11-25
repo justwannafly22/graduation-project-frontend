@@ -25,7 +25,7 @@
                     formControlName="price">
                 <mat-hint></mat-hint>
                 <mat-error *ngIf="!form.controls['price'].valid && form.controls['price'].touched">
-                    {{ getErrorPrice() }}
+                    Not a valid value.
                 </mat-error>
 
             </mat-form-field>

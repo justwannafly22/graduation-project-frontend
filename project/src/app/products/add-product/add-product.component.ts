@@ -23,20 +23,13 @@ export class AddProductComponent {
   }
 
   createForm() {
-    let numberRegEx = /^\d*[1-9]\d*$/;
-
     this.formGroup = this.formBuilder.group({
       name: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
-      price: [null, [Validators.required, Validators.pattern(numberRegEx)]],
+      price: [null, [Validators.required, Validators.min(0), Validators.max(Number.MAX_VALUE)]],
       description: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(500)]]
     });
   }
 
-  getErrorPrice() {
-    return this.formGroup.get('price')?.hasError('required') ? 'Field is required' :
-      this.formGroup.get('price')?.hasError('pattern') ? 'Not a valid price. Price can be only a positive number.' : '';
-  }
-  
   onSubmit() {
     console.log()
     this.dialogRef.close(this.formGroup.value);

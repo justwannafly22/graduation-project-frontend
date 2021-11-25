@@ -1,4 +1,11 @@
-<mat-toolbar>
-  <span class="fill-remaining-space"><a routerLink="/products">Products</a></span>
-</mat-toolbar>
-<router-outlet></router-outlet>
+<div class="main">
+  <mat-toolbar class="main-header">
+    <span class="fill-remaining-space"><h2 routerLink="/products" class="header">Products</h2></span>
+  </mat-toolbar>
+  <div class="main-body">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="main-footer">
+    footer
+  </div>
+</div>

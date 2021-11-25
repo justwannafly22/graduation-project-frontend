@@ -11,16 +11,12 @@ import { Logger } from 'src/app/shared/services/logger';
 
 export class ProductService {
 
-    private headerDict = {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-    }
+    private httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json'
+        })
+      };
     
-    private requestOptions = {                                                                                                                                                                                 
-        headers: new HttpHeaders(this.headerDict), 
-    };
-
     private productsUrl = 'http://localhost:5013/api/v1/products';
 
     constructor(
@@ -28,12 +24,18 @@ export class ProductService {
         private readonly http: HttpClient) { }
 
     getProducts(): Observable<Product[]> {
-        return this.http.get<Product[]>(this.productsUrl, this.requestOptions)
-        .pipe(
+        return this.http.get<Product[]>(this.productsUrl).pipe(
             tap(_ => this.logger.log('fetched products')),
             catchError(this.handleError<Product[]>('getProducts', []))
         );
     }
+
+    createProduct(product: Product): Observable<Product> {
+        return this.http.post<Product>(this.productsUrl, product, this.httpOptions).pipe(
+            tap((newProduct: Product) => this.logger.log(`added product w/ id=${newProduct.id}`)),
+            catchError(this.handleError<Product>('addProduct'))
+        );
+    } 
 
     private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {

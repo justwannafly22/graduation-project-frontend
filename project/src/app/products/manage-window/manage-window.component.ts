@@ -27,7 +27,7 @@ export class ManageWindowComponent implements OnInit {
       this.form = this.fb.group({
         id: [data.id],
         name: [data.name, [Validators.required, Validators.minLength(5), Validators.maxLength(60)]],
-        price: [data.price, [Validators.required, Validators.pattern(/^\d*[1-9]\d*$/), Validators.min(0), Validators.max(1.79769313486232E+308)]],
+        price: [data.price, [Validators.required, Validators.min(0), Validators.max(Number.MAX_VALUE)]],
         description: [data.description, [Validators.required, Validators.minLength(5), Validators.maxLength(500)]]
       });
     }
@@ -42,11 +42,6 @@ export class ManageWindowComponent implements OnInit {
 
   close() {
       this.dialogRef.close();
-  }
-
-  getErrorPrice() {
-    return this.form.get('price')?.hasError('required') ? 'Field is required' :
-      this.form.get('price')?.hasError('pattern') ? 'Not a valid price.' : '';
   }
 
   delete(): void{
