@@ -49,11 +49,6 @@ export class ManageWindowComponent implements OnInit {
       this.form.get('price')?.hasError('pattern') ? 'Not a valid price.' : '';
   }
 
-  getErrorTextLength(field: string) {
-    return this.form.get(field)?.hasError('required') ? 'Field is required' :
-      this.form.get(field)?.hasError('minLength') ? 'Not a valid price.' : '';
-  }
-
   delete(): void{
     this.openCloseManageDialog();
   }

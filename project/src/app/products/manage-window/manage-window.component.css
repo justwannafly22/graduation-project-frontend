@@ -11,8 +11,3 @@
     flex-direction: column;
     justify-content: space-between;
 }
-
-:host ::ng-deep .cdk-overlay-pane {
-    height: 41%;
-    width: 30%;
-}

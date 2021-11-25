@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-product',
@@ -11,9 +12,11 @@ export class AddProductComponent {
   
   formGroup!: FormGroup;
   titleAlert: string = 'This field is required and must be between 5 and 50';
-  post: any = '';
+  data: any = '';
 
-  constructor(private readonly formBuilder: FormBuilder) { }
+  constructor(
+    private readonly formBuilder: FormBuilder,
+    private readonly dialogRef: MatDialogRef<AddProductComponent>) { }
 
   ngOnInit() {
     this.createForm();
@@ -23,28 +26,24 @@ export class AddProductComponent {
     let numberRegEx = /^\d*[1-9]\d*$/;
 
     this.formGroup = this.formBuilder.group({
-      'name': [null, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
-      'price': [null, [Validators.required, Validators.pattern(numberRegEx)]],
-      'weight': [null, [Validators.required, Validators.pattern(numberRegEx)]]
+      name: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
+      price: [null, [Validators.required, Validators.pattern(numberRegEx)]],
+      description: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(500)]]
     });
-  }
-
-  get name() {
-    return this.formGroup.get('name') as FormControl
   }
 
   getErrorPrice() {
     return this.formGroup.get('price')?.hasError('required') ? 'Field is required' :
       this.formGroup.get('price')?.hasError('pattern') ? 'Not a valid price. Price can be only a positive number.' : '';
   }
-
-  getErrorWeight(){
-    return this.formGroup.get('weight')?.hasError('required') ? 'Field is required' :
-      this.formGroup.get('weight')?.hasError('pattern') ? 'Not a valid weight. Weight can be only a positive number.' : '';
+  
+  onSubmit() {
+    console.log()
+    this.dialogRef.close(this.formGroup.value);
   }
 
-  onSubmit(post: any) {
-    this.post = post;
+  close() {
+    this.dialogRef.close();
   }
 
 }

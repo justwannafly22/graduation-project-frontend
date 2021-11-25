@@ -8,14 +8,6 @@
         
             <mat-form-field>
 
-                <input [readonly]="true" matInput
-                    placeholder="Product Id"
-                    formControlName="id">
-
-            </mat-form-field>
-
-            <mat-form-field>
-
                 <input matInput #nameInput
                     placeholder="Product name"
                     formControlName="name">
@@ -54,21 +46,24 @@
 
     </div>
 
-    <mat-dialog-actions>
-        <button mat-button
-                (click)="close()">
+    <mat-dialog-actions style="display: flex; justify-content: space-between;">
+        <div>
+            <button mat-flat-button color="primary"
+                    (click)="save()"
+                    [disabled]="!form.valid">
+                Save
+            </button>
+
+            <button mat-flat-button color="warn"
+                    (click)="delete()">
+                Delete
+            </button>
+
+        </div>
+
+        <button mat-stroked-button
+            (click)="close()">
             Close
-        </button>
-
-        <button mat-button color="primary"
-                (click)="save()"
-                [disabled]="!form.valid">
-            Save
-        </button>
-
-        <button mat-button color="warn"
-                (click)="delete()">
-            Delete
         </button>
     </mat-dialog-actions>
 
