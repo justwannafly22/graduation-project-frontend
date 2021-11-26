@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialogConfig, MatDialog } from "@angular/material/dialog";
 import { CloseManageWindowComponent } from '../close-manage-window/close-manage-window.component';
 import { Product } from '../product';
+import { ProductService } from '../services/product-service';
 
 @Component({
   selector: 'app-manage-window',
@@ -13,11 +14,14 @@ import { Product } from '../product';
 export class ManageWindowComponent implements OnInit {
 
   form!: FormGroup;
+  id: string = '';
   name: string = '';
   price: number = 0;
   description: string = '';
 
-  constructor(private readonly fb: FormBuilder, private readonly dialog: MatDialog,
+  constructor(
+    private readonly fb: FormBuilder,
+    private readonly dialog: MatDialog,
     private readonly dialogRef: MatDialogRef<ManageWindowComponent>,
     @Inject(MAT_DIALOG_DATA) data : Product) {
       this.name = data.name;
@@ -41,7 +45,7 @@ export class ManageWindowComponent implements OnInit {
   }
 
   close() {
-      this.dialogRef.close();
+    this.dialogRef.close();
   }
 
   delete(): void{
@@ -58,7 +62,11 @@ export class ManageWindowComponent implements OnInit {
     const dialogRef = this.dialog.open(CloseManageWindowComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
-      data => console.log("Dialog output:", data) // delete = true, cancel = nothing
+      data => {
+        if (data){
+          this.dialogRef.close(data); // close the parent modal window if element should be deleted
+        }
+      }
     ); 
   }
 

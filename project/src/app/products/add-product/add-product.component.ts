@@ -24,9 +24,9 @@ export class AddProductComponent {
 
   createForm() {
     this.formGroup = this.formBuilder.group({
-      name: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
-      price: [null, [Validators.required, Validators.min(0), Validators.max(Number.MAX_VALUE)]],
-      description: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(500)]]
+      name: ['default name', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
+      price: [1, [Validators.required, Validators.min(0), Validators.max(Number.MAX_VALUE)]],
+      description: ['default description', [Validators.required, Validators.minLength(5), Validators.maxLength(500)]]
     });
   }
 

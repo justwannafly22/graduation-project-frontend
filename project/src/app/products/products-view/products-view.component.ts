@@ -19,7 +19,7 @@ export class ProductsViewComponent implements OnInit  {
 
   displayedColumns: string[] = ['name', 'price', 'description'];
   dataSource = new MatTableDataSource<Product>();
-  productList!: Product[];
+  productList: Product[] = [];
   isEmpty!: boolean;
 
   //#region ViewChild
@@ -39,7 +39,6 @@ export class ProductsViewComponent implements OnInit  {
       //#region FillLists
       this.fillDataSource(data);
       this.productList = data;
-      if (data.length == 0) this.isEmpty = true;
       //#endregion
 
       this.dataSource.paginator = this.paginator;
@@ -56,7 +55,6 @@ export class ProductsViewComponent implements OnInit  {
   }
 
   openManageView(element: Product): void {
-
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = false;
@@ -68,8 +66,31 @@ export class ProductsViewComponent implements OnInit  {
     const dialogRef = this.dialog.open(ManageWindowComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
-      data => console.log("Dialog output:", data)
-    ); 
+      data => {
+        if (data == true) {
+          this.productService.deleteProduct(element.id).subscribe(result => {
+            // if (result == null){ // delete was successfull
+
+            // }
+            this.productList = this.productList.filter(p => p.id !== element.id);
+            this.fillDataSource(this.productList);
+          });
+        }
+        else if (data as Product && data != undefined){
+          let product = this.productList.find(p => p.id == data.id);
+          if (product) {
+            product.name = data.name;
+            product.price = data.price;
+            product.description = data.description;
+
+            this.productService.updateProduct(product);
+          }
+        }
+        else {
+          // throw a mistake
+        }
+      }
+    );
   }
 
   addProduct(): void {
@@ -83,10 +104,10 @@ export class ProductsViewComponent implements OnInit  {
     const dialogRef = this.dialog.open(AddProductComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(data => {
-        if (data == undefined) return;
+      if (data == undefined) return;
 
-        this.productService.createProduct(data as Product).subscribe((newProduct: Product) => {
-        this.productList.push(newProduct);
+      this.productService.createProduct(data as Product).subscribe((newProduct: Product) => {
+        this.productList = this.productList.concat(newProduct);
         this.fillDataSource(this.productList);
       })
     });
@@ -94,6 +115,11 @@ export class ProductsViewComponent implements OnInit  {
 
   fillDataSource(products: Product[]): void {
     this.dataSource.data = products;
+    this.listIsEmpty(products);
+  }
+
+  listIsEmpty(products: Product[]): void {
+    this.isEmpty = products.length == 0 ? true : false;
   }
 
 }
