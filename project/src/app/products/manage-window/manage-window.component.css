@@ -1,0 +1,13 @@
+#manage-window-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.mat-dialog-content {
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
