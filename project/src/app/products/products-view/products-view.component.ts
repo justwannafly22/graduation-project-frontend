@@ -69,25 +69,28 @@ export class ProductsViewComponent implements OnInit  {
       data => {
         if (data == true) {
           this.productService.deleteProduct(element.id).subscribe(result => {
-            // if (result == null){ // delete was successfull
+            // if (result == null) { // delete was successfull   
 
             // }
             this.productList = this.productList.filter(p => p.id !== element.id);
             this.fillDataSource(this.productList);
           });
         }
-        else if (data as Product && data != undefined){
+        else if (data as Product && data != undefined) {
           let product = this.productList.find(p => p.id == data.id);
+
           if (product) {
             product.name = data.name;
             product.price = data.price;
             product.description = data.description;
 
-            this.productService.updateProduct(product);
+            this.productService.updateProduct(product).subscribe(result => {
+              console.log('result: ', result);
+            });
           }
         }
         else {
-          // throw a mistake
+          // throw an exception;
         }
       }
     );
