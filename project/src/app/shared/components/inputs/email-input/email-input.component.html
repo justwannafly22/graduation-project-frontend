@@ -1,0 +1,24 @@
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>{{ "CONTROLS.Email.email" | translate }}</mat-label>
+  <input
+    type="email"
+    matInput
+    [formControl]="emailFormControl"
+    [errorStateMatcher]="matcher"
+    placeholder="Ex. pat@example.com"
+  />
+  <mat-error
+    *ngIf="
+      emailFormControl.hasError('email') &&
+      !emailFormControl.hasError('required')
+    "
+  >
+    {{ "CONTROLS.Email.error" | translate }}
+  </mat-error>
+  <mat-error *ngIf="emailFormControl.hasError('required')">
+    {{ "CONTROLS.Email.firstPartWarningForEmail" | translate
+    }}<strong>{{
+      "CONTROLS.Email.secondPartWarningForEmail" | translate
+    }}</strong>
+  </mat-error>
+</mat-form-field>

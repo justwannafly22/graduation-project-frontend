@@ -1,0 +1,11 @@
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>{{ spirit | translate }}</mat-label>
+  <input
+    type="number"
+    matInput
+    placeholder="number"
+    [errorStateMatcher]="matcher"
+    [formControl]="descriptionFormControl"
+  />
+  <mat-error *ngIf="descriptionFormControl.hasError('required')"></mat-error>
+</mat-form-field>

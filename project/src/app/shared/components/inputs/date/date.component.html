@@ -1,0 +1,15 @@
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>{{ spirit | translate }}</mat-label>
+  <input
+    matInput
+    [matDatepicker]="picker"
+    [formControl]="dataPickFormControl"
+  />
+  <mat-datepicker-toggle
+    class="datepicker-toggle"
+    matSuffix
+    [for]="picker"
+  ></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  <mat-error *ngIf="dataPickFormControl.hasError('required')"></mat-error>
+</mat-form-field>

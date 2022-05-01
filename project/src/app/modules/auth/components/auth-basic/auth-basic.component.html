@@ -1,0 +1,13 @@
+<div class="page">
+  <div class="page__header">{{ "AUTH.header" | translate }}</div>
+  <div class="page__main">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="page__aside">
+    <div class="page__button-translator">
+      <button (click)="languageSwitcher()" mat-fab color="grey">
+        {{ "AUTH.translator" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

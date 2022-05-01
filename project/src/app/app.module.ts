@@ -1,36 +1,36 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule  } from '@angular/forms';
-import { ProductsViewComponent } from './products/products-view/products-view.component';
-import { AddProductComponent } from './products/add-product/add-product.component';
-import { MaterialModule } from './shared/material.module';
-import { ManageWindowComponent } from './products/manage-window/manage-window.component';
-import { CloseManageWindowComponent } from './products/close-manage-window/close-manage-window.component';
-import { HttpClientModule } from '@angular/common/http';
 
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 @NgModule({
-  declarations: [
-    AppComponent,
-    PageNotFoundComponent,
-    ProductsViewComponent,
-    AddProductComponent,
-    ManageWindowComponent,
-    CloseManageWindowComponent
-  ],
+  declarations: [AppComponent],
   imports: [
+    CommonModule,
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
     ReactiveFormsModule,
-    MaterialModule,
-    HttpClientModule
+    FormsModule,
+    HttpClientModule,
+    // MyErrorStateMatcher,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ManageWindowComponent]
 })
-export class AppModule { }
+export class AppModule {}

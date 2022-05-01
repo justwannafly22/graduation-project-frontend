@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AddProductComponent } from './products/add-product/add-product.component';
-import { ProductsViewComponent } from './products/products-view/products-view.component';
 
 const routes: Routes = [
-  { path: 'products', component: ProductsViewComponent },
-  { path: 'add-product', component: AddProductComponent },
-  { path: '',   redirectTo: '/products', pathMatch: 'full' },
-  { path: '**', component: PageNotFoundComponent }
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((module) => module.AuthModule),
+  }, //main
+  {
+    path: '**',
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((module) => module.AuthModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-
-export class AppRoutingModule { }
+export class AppRoutingModule {}

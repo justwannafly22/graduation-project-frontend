@@ -1,0 +1,35 @@
+<div class="page">
+  <table class="page__table" mat-table matSort aria-label="Elements">
+    <ng-container
+      *ngFor="let columnConfig of displayedColumns"
+      [matColumnDef]="columnConfig.dataField"
+    >
+      <th
+        class="page__table-header"
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+      >
+        {{ columnConfig.headerName }}
+      </th>
+      <td mat-cell *matCellDef="let currElement">
+        {{ currElement[columnConfig.dataField] }}
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayed()"></tr>
+    <tr
+      mat-row
+      *matRowDef="let element; columns: displayed()"
+      (click)="selectElement(element)"
+    ></tr>
+  </table>
+  <mat-paginator
+    #paginator
+    [length]="tableSize"
+    [pageIndex]="0"
+    [pageSize]="7"
+    [pageSizeOptions]="[5, 7, 10]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>
