@@ -8,6 +8,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { MyErrorStateMatcher } from './shared/Validators/error-state-matcher';
+import { TranslationService } from './shared/services/translate.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -20,7 +22,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    // MyErrorStateMatcher,
+    //MyErrorStateMatcher,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -30,7 +32,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [TranslationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,99 @@
+{
+  "AUTH": {
+    "header": "Cv Generator",
+    "translator": "RU",
+    "loginCaption": "Log in to your account",
+    "signUp": "Sign Up",
+    "back": "Back"
+  },
+  "CONTROLS": {
+    "Email": {
+      "email": "Email",
+      "error": "Please enter a valid email address",
+      "firstPartWarningForEmail": "Email is",
+      "secondPartWarningForEmail": " required"
+    },
+    "Password": {
+      "password": "Password"
+    },
+    "Login": {
+      "login": "Login"
+    },
+    "Register": {
+      "create": "Create your account",
+      "employee": "Employee",
+      "hirer": "Hirer"
+    },
+    "FullName": {
+      "firstName": "First name",
+      "secondName": "Long Last Name That Will Be Truncated"
+    },
+    "Company": {
+      "company": "Company"
+    },
+    "DataPickerStart": {
+      "PickerStart": "Select start date"
+    },
+    "DataPickerEnd": {
+      "PickerEnd": "Select end date"
+    },
+    "TeamSize": {
+      "Size": "Team Size"
+    },
+    "Description": {
+      "description": "Description"
+    },
+    "TasksPerformed": {
+      "tasksPerformed": "Tasks performed"
+    },
+    "ProjectRoles": {
+      "projectRoles": "Project roles"
+    },
+    "Specializations": {
+      "specializations": "Specializations"
+    },
+    "Responsibilities": {
+      "responsibilities": "Responsibilities"
+    },
+    "Tittle": {
+      "tittle": "Project name"
+    },
+    "Specialization": {
+      "specialization": "Specialization"
+    },
+    "Department": {
+      "department": "Department"
+    },
+    "Institution": {
+      "institution": "Institution"
+    },
+    "Diploma Profession": {
+      "diploma Profession": "Diploma Profession"
+    },
+    "Skills": {
+      "skills": "Skills"
+    },
+    "Role": {
+      "role": "Role"
+    },
+    "Languages": {
+      "languages": "Languages"
+    },
+    "Projects": {
+      "projects": "Projects"
+    },
+    "User": {
+      "user": "User"
+    },
+    "Tittle": {
+      "tittle": "Tittle"
+    }
+  },
+  "BUTTONS": {
+    "delete": "Delete",
+    "put": "Edit",
+    "create": "Create",
+    "view": "View",
+    "add": "Add"
+  }
+}

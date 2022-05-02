@@ -11,10 +11,10 @@ import {
   FormControl,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
-import { BasicResponseInterface } from 'src/app/shared/interfaces/basic/basic-response.interface';
-import { LanguagesResponseInterface } from 'src/app/shared/interfaces/languages/languages-response.interface';
-import { ProjectResponseInterface } from 'src/app/shared/interfaces/projects/project-response.interface';
-import { SkillsResponseInterface } from 'src/app/shared/interfaces/skills/skills-response.interface';
+// import { BasicResponseInterface } from 'src/app/shared/interfaces/basic/basic-response.interface';
+// import { LanguagesResponseInterface } from 'src/app/shared/interfaces/languages/languages-response.interface';
+// import { ProjectResponseInterface } from 'src/app/shared/interfaces/projects/project-response.interface';
+// import { SkillsResponseInterface } from 'src/app/shared/interfaces/skills/skills-response.interface';
 
 @Component({
   selector: 'app-multi-select',
@@ -33,11 +33,13 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
   @Input('multiple') multiple: boolean = true;
   @Input('spirit') spirit!: string;
   @Input() list!: any[] | any;
-  @Input() allList?:
-    | BasicResponseInterface[]
-    | SkillsResponseInterface[]
-    | LanguagesResponseInterface[]
-    | ProjectResponseInterface[];
+  //
+  allList?: any[];
+  // @Input() allList?:
+  //   | BasicResponseInterface[]
+  //   | SkillsResponseInterface[]
+  //   | LanguagesResponseInterface[]
+  //   | ProjectResponseInterface[];
   control = new FormControl();
   onChange: any | any[];
   onTouch: any;

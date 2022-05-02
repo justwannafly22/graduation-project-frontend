@@ -1,0 +1,99 @@
+{
+  "AUTH": {
+    "header": "Cv-Генератор",
+    "translator": "EN",
+    "loginCaption": "Войдите в свой аккаунт",
+    "signUp": "Зарегистрироваться",
+    "back": "Назад"
+  },
+  "CONTROLS": {
+    "Email": {
+      "email": "Почта",
+      "error": "Пожалуйста, введите валидный адрес",
+      "firstPartWarningForEmail": "Почта является",
+      "secondPartWarningForEmail": " обязательным полем"
+    },
+    "Password": {
+      "password": "Пароль"
+    },
+    "Login": {
+      "login": "Войти"
+    },
+    "Register": {
+      "create": "Создайте свой аккаунт",
+      "employee": "Соискатель",
+      "hirer": "Работодатель"
+    },
+    "FullName": {
+      "firstName": "Имя",
+      "secondName": "Фамилия"
+    },
+    "Company": {
+      "company": "Компания"
+    },
+    "DataPicker": {
+      "PickerStart": "Выберите дату начала"
+    },
+    "DataPicker": {
+      "PickerEnd": "Выберите дату конца"
+    },
+    "TeamSize": {
+      "Size": "Размер команды"
+    },
+    "Description": {
+      "description": "Описание"
+    },
+    "TasksPerformed": {
+      "tasksPerformed": "Выполненные задачи"
+    },
+    "ProjectRoles": {
+      "projectRoles": "Роли проекта"
+    },
+    "Specializations": {
+      "specializations": "Специальзация"
+    },
+    "Responsibilities": {
+      "responsibilities": "Обязанности"
+    },
+    "Tittle": {
+      "tittle": "Название проекта"
+    },
+    "Specialization": {
+      "specialization": "Специализация"
+    },
+    "Department": {
+      "department": "Отдел"
+    },
+    "Institution": {
+      "institution": "Учреждение"
+    },
+    "Diploma Profession": {
+      "diploma Profession": "Дипломная профессия"
+    },
+    "Skills": {
+      "skills": "Навыки и умения"
+    },
+    "Role": {
+      "role": "Роль"
+    },
+    "Languages": {
+      "languages": "Языки"
+    },
+    "Projects": {
+      "projects": "Проекты"
+    },
+    "User": {
+      "user": "Пользователь"
+    },
+    "Tittle": {
+      "tittle": "Название"
+    }
+  },
+  "BUTTONS": {
+    "delete": "Удалить",
+    "put": "Изменить",
+    "create": "Добавить",
+    "view": "Просмотр",
+    "add": "Добавить"
+  }
+}
