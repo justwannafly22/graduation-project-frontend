@@ -28,6 +28,9 @@
       "firstName": "Имя",
       "secondName": "Фамилия"
     },
+    "Age": {
+      "age": "Возраст"
+    },
     "Company": {
       "company": "Компания"
     },

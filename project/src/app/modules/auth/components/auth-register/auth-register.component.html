@@ -1,1 +1,44 @@
-<p>auth-register works!</p>
+<div class="page" role="dialog">
+  <div class="page__caption">
+    <a mat-button routerLink="/auth/login">{{ "AUTH.back" | translate }}</a>
+    <h2>{{ "CONTROLS.Register.create" | translate }}</h2>
+  </div>
+
+  <form [formGroup]="formGroup" action="" novalidate (ngSubmit)="submit()">
+    <div class="body">
+      <div class="page__form">
+        <app-description
+          class="page__form-input"
+          formControlName="firstName"
+          spirit="CONTROLS.FullName.firstName"
+        ></app-description>
+        <app-description
+          class="page__form-input"
+          formControlName="lastName"
+          spirit="CONTROLS.FullName.secondName"
+        ></app-description>
+        <app-size-input
+          class="page__form-input"
+          formControlName="age"
+          spirit="CONTROLS.Age.age"
+        ></app-size-input>
+        <app-contact-number
+          formControlName="contactNumber"
+        ></app-contact-number>
+        <app-email-input
+          class="page__form-input"
+          formControlName="email"
+        ></app-email-input>
+        <app-password-input
+          class="page__form-input"
+          formControlName="password"
+        ></app-password-input>
+      </div>
+    </div>
+    <div class="page__btn">
+      <button mat-raised-button type="submit">
+        {{ "AUTH.signUp" | translate }}
+      </button>
+    </div>
+  </form>
+</div>

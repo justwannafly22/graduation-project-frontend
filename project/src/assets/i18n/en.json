@@ -28,6 +28,9 @@
       "firstName": "First name",
       "secondName": "Long Last Name That Will Be Truncated"
     },
+    "Age": {
+      "age": "age"
+    },
     "Company": {
       "company": "Company"
     },

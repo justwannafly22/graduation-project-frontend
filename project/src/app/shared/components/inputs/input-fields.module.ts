@@ -15,6 +15,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MultiSelectComponent } from './multi-select/multi-select.component';
 import { MatSelectModule } from '@angular/material/select';
 import { SizeInputComponent } from './size-input/size-input.component';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MaterialExampleModule } from '../../modules/material.module';
+import { ContactNumberComponent } from './contact-number/contact-number.component';
 @NgModule({
   declarations: [
     EmailInputComponent,
@@ -23,6 +27,7 @@ import { SizeInputComponent } from './size-input/size-input.component';
     DescriptionComponent,
     MultiSelectComponent,
     SizeInputComponent,
+    ContactNumberComponent,
   ],
   exports: [
     DateComponent,
@@ -31,14 +36,18 @@ import { SizeInputComponent } from './size-input/size-input.component';
     DescriptionComponent,
     MultiSelectComponent,
     SizeInputComponent,
+    MaterialExampleModule,
+    ContactNumberComponent,
   ],
   imports: [
     CommonModule,
     MatSelectModule,
     TranslateModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
     MatInputModule,
     MatDatepickerModule,
+    MatIconModule,
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },

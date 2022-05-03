@@ -1,1 +1,25 @@
-<p>auth-login works!</p>
+<div class="page">
+  <div class="page__caption">
+    <h2>{{ "AUTH.loginCaption" | translate }}</h2>
+  </div>
+  <form [formGroup]="loginFormGroup" action="" novalidate (ngSubmit)="submit()">
+    <app-email-input
+      class="page__form-input"
+      formControlName="email"
+    ></app-email-input>
+    <app-password-input
+      class="page__form-input"
+      formControlName="password"
+    ></app-password-input>
+    <div class="page__btn">
+      <button mat-raised-button type="submit">
+        {{ "CONTROLS.Login.login" | translate }}
+      </button>
+    </div>
+  </form>
+  <div class="page__footer">
+    <a mat-button routerLink="/auth/register">{{
+      "AUTH.signUp" | translate
+    }}</a>
+  </div>
+</div>
