@@ -1,0 +1,63 @@
+.page-container {
+  height: 890px;
+  width: inherit;
+  border: 0;
+  //background-color: var(--basic-bg-color);
+  //color: var(--text-color);
+}
+.page__header {
+  padding: 10px;
+  display: flex;
+  background-color: var(--header-bg-color);
+  color: var(--text-color);
+}
+:host-context(.page__breadcrumb) {
+  color: var(--text-color);
+}
+.page__header-icon {
+  font-size: 25px;
+  margin: 2px 5px 0 0;
+}
+mat-sidenav {
+  background-color: var(--basic-bg-color);
+  color: var(--text-color);
+}
+
+.page__bar-events {
+  width: 250px;
+  height: inherit;
+  overflow: auto;
+  border: 0px solid #555;
+}
+.page__frame {
+  height: 840px;
+  width: auto;
+}
+.page__list-options {
+  display: flex;
+  color: var(--text-color);
+}
+.mat-drawer-inner-container {
+  background-color: var(--basic-bg-color);
+}
+.page__list-icon {
+  font-size: 20px;
+  margin: 0 5px 25px 0;
+}
+.page_main-header::ng-deep {
+  display: flex;
+  background-color: var(--basic-bg-color);
+  color: var(--text-color);
+}
+.xng-breadcrumb-trail {
+  margin-top: 5px;
+  background-color: var(--basic-bg-color);
+  color: var(--text-color);
+}
+.mat-drawer-inner-container {
+  background-color: var(--basic-bg-color);
+  color: var(--text-color);
+}
+mat-sidenav-content {
+  height: 100%;
+}

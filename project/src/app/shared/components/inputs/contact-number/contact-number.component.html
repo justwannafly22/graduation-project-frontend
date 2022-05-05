@@ -1,12 +1,13 @@
 <mat-form-field class="example-full-width" appearance="fill">
   <mat-label>Telephone</mat-label>
-  <span matPrefix>+375 29 &nbsp;</span>
+  <span matPrefix>+3 &nbsp;</span>
   <input
     type="tel"
     [formControl]="contactNumberFormControl"
     [errorStateMatcher]="matcher"
     matInput
     placeholder="123-34-45"
+    pattern="^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
   />
   <mat-icon matSuffix>mode_edit</mat-icon>
   <mat-error *ngIf="contactNumberFormControl.hasError('required')"></mat-error>

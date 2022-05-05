@@ -1,0 +1,61 @@
+<mat-sidenav-container class="page-container">
+  <mat-sidenav
+    #sidenav
+    class="page__bar-events"
+    mode="side"
+    [(opened)]="opened"
+    (opened)="events.push('open!')"
+    (closed)="events.push('close!')"
+  >
+    <div class="page__header">
+      <mat-icon
+        class="page__header-icon"
+        role="img"
+        aria-hidden="true"
+        data-mat-icon-type="font"
+        >open_in_new</mat-icon
+      >
+      <h1>Sidebar</h1>
+    </div>
+
+    <mat-selection-list [multiple]="false">
+      <mat-list-option>
+        <div class="page__list-options" (click)="selectEmployees()">
+          <mat-icon class="page__list-icon">folder_open</mat-icon> Employees
+        </div>
+      </mat-list-option>
+      <mat-list-option>
+        <div class="page__list-options" (click)="selectProjects()">
+          <mat-icon class="page__list-icon">folder_open</mat-icon> Projects
+        </div>
+      </mat-list-option>
+      <mat-list-option>
+        <div class="page__list-options" (click)="selectCV()">
+          <mat-icon class="page__list-icon">folder_open</mat-icon> CV
+        </div>
+      </mat-list-option>
+      <mat-list-option>
+        <div class="page__list-options" (click)="selectNews()">
+          <mat-icon class="page__list-icon">folder_open</mat-icon> News
+        </div>
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content >
+    <div class="page_main-header">
+      <p>
+        <button mat-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </p>
+     
+      <ng-template #iconTemplate>
+        <mat-icon>chevron_right</mat-icon>
+      </ng-template>
+    </div>
+    <div class="page__frame">
+      <router-outlet ></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

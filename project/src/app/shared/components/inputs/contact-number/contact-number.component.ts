@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import {
   ControlValueAccessor,
   FormControl,
   FormGroup,
+  NG_VALUE_ACCESSOR,
   Validators,
 } from '@angular/forms';
 import { MyErrorStateMatcher } from 'src/app/shared/Validators/error-state-matcher';
@@ -17,6 +18,13 @@ export class MyTel {
   selector: 'app-contact-number',
   templateUrl: './contact-number.component.html',
   styleUrls: ['./contact-number.component.css'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => ContactNumberComponent),
+      multi: true,
+    },
+  ],
 })
 export class ContactNumberComponent implements OnInit, ControlValueAccessor {
   contactNumberFormControl = new FormControl('', [Validators.required]);

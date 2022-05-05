@@ -18,7 +18,7 @@ export class AuthRegisterComponent implements OnInit {
   }
   public initializeForm(): void {
     this.formGroup = this.formBuilder.group({
-      name: ['', Validators.required],
+      firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       age: ['', Validators.max(100)],
       contactNumber: ['', Validators.required],
@@ -33,6 +33,7 @@ export class AuthRegisterComponent implements OnInit {
       : (this.displayCompany = false);
   };
   public submit() {
+    this.formGroup.value.contactNumber = `+3${this.formGroup.value.contactNumber}`;
     console.log(this.formGroup.value);
   }
 }

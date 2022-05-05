@@ -6,6 +6,11 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () =>
       import('./modules/auth/auth.module').then((module) => module.AuthModule),
+  },
+  {
+    path: 'body',
+    loadChildren: () =>
+      import('./modules/body/main-page.module').then((module) => module.MainPageModule),
   }, //main
   {
     path: '**',

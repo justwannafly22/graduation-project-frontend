@@ -16,6 +16,7 @@ export class AuthLoginComponent implements OnInit {
     this.initializeForm();
   }
   public initializeForm(): void {
+    console.log('qwe');
     this.loginFormGroup = this.formBuilder.group({
       email: ['', Validators.email],
       password: ['', Validators.maxLength(20)],

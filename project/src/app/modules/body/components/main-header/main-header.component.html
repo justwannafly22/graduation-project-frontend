@@ -1,0 +1,17 @@
+<nav class="page">
+  <a href="#" class="page-brand">{{ "AUTH.header" | translate }}</a>
+  <a href="#" class="page-brand">Admin</a>
+  <div class="page-wrap">
+    <ul class="page-menu">
+      <li class="page__icons">
+        <!-- <h1 class="page_user-name" *ngIf="currentUser$ != null">
+          {{ (currentUser$ | async)?.firstName }}
+          {{ (currentUser$ | async)?.lastName }}
+        </h1> -->
+      </li>
+      <li class="page__icons">
+        <mat-icon (click)="languageSwitcher()">translate</mat-icon>
+      </li>
+    </ul>
+  </div>
+</nav>
