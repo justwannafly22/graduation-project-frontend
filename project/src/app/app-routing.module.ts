@@ -11,7 +11,7 @@ const routes: Routes = [
     path: 'body',
     loadChildren: () =>
       import('./modules/body/main-page.module').then((module) => module.MainPageModule),
-  }, //main
+  }, 
   {
     path: '**',
     loadChildren: () =>

@@ -8,20 +8,24 @@ import { Router } from '@angular/router';
 })
 export class SideBarComponent implements OnInit {
   events: string[] = [];
-  opened: boolean | undefined = false;
+  opened: boolean | undefined = true;
 
   constructor(private router: Router) {}
-  selectEmployees(): void {
-    this.router.navigate(['main/employees']);
+  selectDetails(): void {
+    this.router.navigate(['body/details']);
   }
-  selectProjects(): void {
-    this.router.navigate(['main/projects']);
+  selectRepairs(): void {
+    this.router.navigate(['body/repairs']);
   }
-  selectCV(): void {
-    this.router.navigate(['main/cv']);
+  selectMasters(): void {
+    this.router.navigate(['body/masters']);
   }
-  selectNews(): void {
-    this.router.navigate(['main/news']);
+  selectClients(): void {
+    this.router.navigate(['body/clients']);
   }
+  selectReporting(): void {
+    this.router.navigate(['body/reporting']);
+  }
+
   ngOnInit(): void {}
 }
