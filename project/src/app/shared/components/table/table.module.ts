@@ -10,11 +10,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { TranslateModule } from '@ngx-translate/core';
-import { ProjectsRoutingModule } from 'src/app/modules/projects/projects-routing.module';
 import { InputFieldsModule } from '../inputs/input-fields.module';
 import { TableComponent } from './table/table.component';
 import { MatInputModule } from '@angular/material/input';
-import { CvModule } from 'src/app/modules/cv/cv.module';
 
 @NgModule({
   declarations: [TableComponent],
@@ -28,10 +26,8 @@ import { CvModule } from 'src/app/modules/cv/cv.module';
     ReactiveFormsModule,
     MatSidenavModule,
     MatInputModule,
-    ProjectsRoutingModule,
-    //CvModule,
     TranslateModule,
-    MatButtonModule,
+   MatButtonModule,
     MatFormFieldModule,
     InputFieldsModule,
     MatNativeDateModule,

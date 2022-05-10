@@ -1,24 +1,14 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  ViewChild,
-} from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
-import { Router } from '@angular/router';
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { CvResponseInterface } from 'src/app/shared/interfaces/cv/cv-response.interface';
-import { EmployeeResponseInterface } from 'src/app/shared/interfaces/employee/employees-response.interface';
-import { ProjectResponseInterface } from 'src/app/shared/interfaces/projects/project-response.interface';
-import { PersistanceService } from 'src/app/shared/services/persistance.service';
-import { getEmployeesAction } from 'src/app/store/employees/actions/employees.action';
-import { getProjectsAction } from 'src/app/store/projects/actions/project.action';
-import { DataTableDataSource } from './table-data-sourse';
+import { Component, ChangeDetectionStrategy, AfterViewInit, ViewChild, Input } from "@angular/core";
+import { MatPaginator } from "@angular/material/paginator";
+import { MatSort } from "@angular/material/sort";
+import { MatTable } from "@angular/material/table";
+import { Router } from "@angular/router";
+import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
+import { Observable } from "rxjs";
+import { ProductResponseInterface } from "src/app/shared/interfaces/product/product-response.interface";
+import { PersistanceService } from "src/app/shared/services/persistanse.service";
+import { DataTableDataSource } from "./table-data-sourse";
+
 
 enum InputDataType {
   EmployeeType = 'employee',
@@ -35,16 +25,16 @@ enum InputDataType {
 export class TableComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<
-    EmployeeResponseInterface | ProjectResponseInterface | CvResponseInterface
+  @ViewChild(MatTable) table!: MatTable<ProductResponseInterface
+    // EmployeeResponseInterface | ProjectResponseInterface | CvResponseInterface
   >;
   public dataSource: DataTableDataSource;
   @Input() public dataType!: string;
-  @Input() public collection!: Observable<
-    | ProjectResponseInterface[]
-    | EmployeeResponseInterface[]
-    | CvResponseInterface[]
-  >;
+  @Input() public collection!:
+  ProductResponseInterface[]
+    // | EmployeeResponseInterface[]
+    // | CvResponseInterface[]
+  ;
   @Input() public columns: any;
   public tableSize!: number;
   displayedColumns: any;
@@ -52,23 +42,23 @@ export class TableComponent implements AfterViewInit {
   constructor(
     private _router: Router,
     private persistanceService: PersistanceService,
-    private store: Store
+    //private store: Store
   ) {
     this.dataSource = new DataTableDataSource();
-    this.store.dispatch(getProjectsAction());
-    this.store.dispatch(getEmployeesAction());
+    //this.store.dispatch(getProjectsAction());
+   // this.store.dispatch(getEmployeesAction());
   }
 
   ngAfterViewInit(): void {
     this.displayedColumns = this.columns;
     this.table.dataSource = this.collection;
-    this.collection.pipe(untilDestroyed(this));
+    // this.collection.pipe(untilDestroyed(this));
   }
   public selectElement(
     item:
-      | EmployeeResponseInterface
-      | ProjectResponseInterface
-      | CvResponseInterface
+        ProductResponseInterface
+      // | ProjectResponseInterface
+      // | CvResponseInterface
   ): void {
     switch (this.dataType) {
       case InputDataType.EmployeeType:

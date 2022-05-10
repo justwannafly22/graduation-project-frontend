@@ -1,1 +1,19 @@
-<p>main-details works!</p>
+<router-outlet
+(activate)="onActivate()"
+(deactivate)="onDeactivate()"
+></router-outlet>
+<div class="page" *ngIf="outlet">
+  <div class="page__header">
+    <!-- <button mat-flat-button color="accent" (click)="newEmployee()">
+      Add Employee
+    </button> -->
+  </div>
+  <div class="page__conteiner">
+    <app-table
+      dataType="employee"
+      [collection]="details"
+      [columns]="columns"
+    ></app-table>
+  </div>
+  <p>{{details}}</p>
+</div>
