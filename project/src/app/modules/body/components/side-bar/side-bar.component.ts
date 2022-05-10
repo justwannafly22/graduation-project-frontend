@@ -26,6 +26,9 @@ export class SideBarComponent implements OnInit {
   selectReporting(): void {
     this.router.navigate(['body/reporting']);
   }
+  selectProducts():void{
+    this.router.navigate(['body/products']);
+  }
 
   ngOnInit(): void {}
 }

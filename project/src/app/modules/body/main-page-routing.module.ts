@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainClientsComponent } from '../clients/components/main-clients/main-clients.component';
 import { MainDetailsComponent } from '../details/components/main-details/main-details.component';
 import { MainMastersComponent } from '../masters/components/main-masters/main-masters.component';
+import { MainProductComponent } from '../products/components/main-product/main-product.component';
 import { MainRepairsComponent } from '../repairs/components/main-repairs/main-repairs.component';
 import { MainReportingComponent } from '../reporting/components/main-reporting/main-reporting.component';
 
@@ -57,6 +58,23 @@ const routes: Routes = [
       {
         path: 'masters',
         component: MainMastersComponent,
+        // children: [
+        //   {
+        //     path: 'add-employee',
+        //     data: { breadcrumb: { alias: 'add-employee' } },
+        //     component: AddEmployeeComponent,
+        //   },
+        //   {
+        //     path: 'account-employee',
+        //     data: { breadcrumb: { alias: 'account-employee' } },
+        //     component: AccountEmployeeComponent,
+        //   },
+        // ],
+      },
+      
+      {
+        path: 'products',
+        component: MainProductComponent,
         // children: [
         //   {
         //     path: 'add-employee',
