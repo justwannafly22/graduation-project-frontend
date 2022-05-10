@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainRepairsComponent } from './components/main-repairs/main-repairs.component';
+import { RepairsService } from './services/repairs.service';
 
 
 
@@ -11,6 +12,7 @@ import { MainRepairsComponent } from './components/main-repairs/main-repairs.com
   imports: [
     CommonModule
   ],
+  providers:[RepairsService],
   exports:[
     MainRepairsComponent
   ]

@@ -3,22 +3,18 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { map, merge, Observable, of as observableOf } from 'rxjs';
-// import { CvResponseInterface } from 'src/app/shared/interfaces/cv/cv-response.interface';
-// import { EmployeeResponseInterface } from 'src/app/shared/interfaces/employee/employees-response.interface';
-// import { ProjectResponseInterface } from 'src/app/shared/interfaces/projects/project-response.interface';
+import { ProductResponseInterface } from 'src/app/shared/interfaces/product/product-response.interface';
+
 
 @UntilDestroy()
-export class DataTableDataSource extends DataSource<any
- // EmployeeResponseInterface | ProjectResponseInterface | CvResponseInterface
+export class DataTableDataSource extends DataSource<
+ProductResponseInterface
 > {
   connect(
     collectionViewer: CollectionViewer
   ): Observable<
     readonly (
-        any
-    //   | EmployeeResponseInterface
-    //   | ProjectResponseInterface
-    //   | CvResponseInterface
+      ProductResponseInterface
     )[]
   > {
     throw new Error('Method not implemented.');
@@ -26,11 +22,8 @@ export class DataTableDataSource extends DataSource<any
   disconnect(collectionViewer: CollectionViewer): void {
     throw new Error('Method not implemented.');
   }
-  data:any[]
-    // | EmployeeResponseInterface[]
-    // | ProjectResponseInterface[]
-    // | CvResponseInterface[] 
-    = [];
+  data:
+  ProductResponseInterface[] = [];
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
   constructor() {
