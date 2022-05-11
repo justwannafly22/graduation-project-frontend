@@ -17,6 +17,9 @@ import { DataTableDataSource } from './table-data-sourse';
 
 enum InputDataType {
   DetailsType = 'details',
+  MastersType = 'masters',
+  ClientsType = 'clients',
+  ProductsType = 'products'
 }
 @UntilDestroy()
 @Component({

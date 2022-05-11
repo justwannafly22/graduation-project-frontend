@@ -6,6 +6,7 @@ export interface IEnviroments {
   mastersApiUrl: string;
   repairsApiUrl:string;
   replacedPartApiUrl:string;
+  clientsApiUrl:string;
 }
 
 export const environment: IEnviroments = {
@@ -16,4 +17,6 @@ export const environment: IEnviroments = {
   productApiUrl: 'http://localhost:5013/api/v1/products',
   mastersApiUrl:'http://localhost:5014/api/v1/masters',
   repairsApiUrl:'http://localhost:5011/api/v1/repairs',
+  clientsApiUrl:'http://localhost:5010/api/v1/clients',
+
 };

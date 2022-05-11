@@ -1,2 +1,6 @@
-<p>main-masters works!</p>
-<p>{{masters}}</p>
+<p>{{masters[0].id}}</p>
+<app-table
+      dataType="masters"
+      [collection]="masters"
+      [columns]="columns"
+    ></app-table>

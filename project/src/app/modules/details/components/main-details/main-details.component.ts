@@ -15,7 +15,7 @@ import { DetailsService } from '../../services/details.service';
 })
 export class MainDetailsComponent implements OnInit {
   public outlet: boolean = true;
-  public details!:any;
+  public details!:any[];
   public qwe!:any;
   constructor(
     private router: Router,
@@ -23,15 +23,18 @@ export class MainDetailsComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
-    this.details = this.detailsService.getProducts().subscribe((item: any)=>{return item?item:[]})
+   this.detailsService.getProducts().subscribe(item=>{
+     console.log("kfg",item);
+     this.details = item;
+    }
+     )
   }
 
    
   public columns: Columns[] = [
-    { headerName: 'Id', dataField: 'id',type: "text"},
     { headerName: 'Name', dataField: 'name',type: "text"},
-    { headerName: 'Price', dataField: 'price',type: "number"},
-    { headerName: 'Description', dataField: 'description',type: "text" },
+    { headerName: 'Price', dataField: 'totalPrice',type: "number"},
+    { headerName: 'Description', dataField: 'advancedInfo',type: "text" },
   ];
   // newEmployee(): void {
   //   this.router.navigate(['main/employees/add-employee']);

@@ -1,19 +1,19 @@
-<router-outlet
+<!--  <router-outlet
 (activate)="onActivate()"
 (deactivate)="onDeactivate()"
-></router-outlet>
+></router-outlet> 
 <div class="page" *ngIf="outlet">
   <div class="page__header">
-    <!-- <button mat-flat-button color="accent" (click)="newEmployee()">
+     <button mat-flat-button color="accent" (click)="newEmployee()">
       Add Employee
-    </button> -->
+    </button> 
   </div>
-  <div class="page__conteiner">
-    <p>{{details}}</p>
-    <!-- <app-table
-      dataType="employee"
+  <div class="page__conteiner"> -->
+    <p>{{details[0].id}}</p>
+    <app-table
+      dataType="details"
       [collection]="details"
       [columns]="columns"
-    ></app-table> -->
-  </div> 
-</div>
+    ></app-table>
+  <!-- </div> 
+</div> -->

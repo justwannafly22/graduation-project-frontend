@@ -11,6 +11,8 @@ import { MaterialExampleModule } from 'src/app/shared/modules/material.module';
 import { ClientsModule } from '../clients/clients.module';
 import { DetailsModule } from '../details/details.module';
 import { MastersModule } from '../masters/masters.module';
+import { ProductsModule } from '../products/products.module';
+import { ProductsService } from '../products/services/product.service';
 import { RepairsModule } from '../repairs/repairs.module';
 import { ReportingModule } from '../reporting/reporting.module';
 import { MainHeaderComponent } from './components/main-header/main-header.component';
@@ -20,10 +22,11 @@ import { MainPageRoutingModule } from './main-page-routing.module';
 
 @NgModule({
   declarations: [MainComponent, SideBarComponent, MainHeaderComponent],
-  providers: [],
+  providers: [ProductsService],
   imports: [
     RouterModule,
     // NewsModule,
+    ProductsModule,
     CommonModule,
     MainPageRoutingModule,
     MatIconModule,
