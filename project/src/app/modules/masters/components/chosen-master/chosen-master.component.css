@@ -1,0 +1,23 @@
+.page{
+  border-radius: 0px;
+  background: #fff;
+}
+ul {
+    text-align: center;
+    margin: 0px 0 35px 0;
+  }
+
+  ul li {
+    display: inline-block;
+    width: 180px;
+    height: 80px;
+    margin: 0 25px 0px 0;
+    vertical-align: top;
+    line-height: normal;
+    display: inline;
+    zoom: 1;
+   
+  } .page__form-input {
+      height: inherit;
+      width: 300px;
+    }

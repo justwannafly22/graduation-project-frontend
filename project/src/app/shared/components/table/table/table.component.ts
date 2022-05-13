@@ -65,14 +65,14 @@ export class TableComponent implements AfterViewInit {
     item:ProductResponseInterface
   ): void {
     switch (this.dataType) {
-      case InputDataType.DetailsType:
+      case InputDataType.MastersType:
         this.persistanceService.set('accountId', item.id);
-        this._router.navigate([`main/employees/account-employee`]);
+        this._router.navigate([`body/masters/chosen-master`]);
         break;
-      // case InputDataType.ProjectType:
-      //   this.persistanceService.set('accountId', item.id);
-      //   this._router.navigate([`main/projects/separate-project`]);
-      //   break;
+      case InputDataType.ClientsType:
+        this.persistanceService.set('accountId', item.id);
+        this._router.navigate([`body/clients/chosen-client`]);
+        break;
       // case InputDataType.CvType:
       //   this.persistanceService.set('accountId', item.id);
       //   this._router.navigate([`main/cv/separate-cv`]);

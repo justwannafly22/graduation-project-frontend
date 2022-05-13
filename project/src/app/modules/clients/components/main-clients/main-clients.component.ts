@@ -9,6 +9,7 @@ import { ClientsService } from '../../services/clients.service';
   styleUrls: ['./main-clients.component.css']
 })
 export class MainClientsComponent implements OnInit {
+  public outlet: boolean = true;
   public clients!:ClientsResponseInterface[];
   constructor(private clientService:ClientsService) { }
 
@@ -19,7 +20,10 @@ export class MainClientsComponent implements OnInit {
     { headerName: 'Email', dataField: 'email',type: "text" },
     // { headerName: 'Master', dataField: 'masterId',type: "text" },
   ];
+ 
 
+ onActivate = () => (this.outlet = false);
+  onDeactivate = () => (this.outlet = true);
   ngOnInit(): void {
     this.clientService.getClients().subscribe(item=>{
       this.clients = item;

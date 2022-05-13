@@ -1,6 +1,14 @@
 <p>{{clients[0].id}}</p>
-<app-table
-  dataType="clients"
-  [collection]="clients"
-  [columns]="columns"
-></app-table>
+<router-outlet
+  (activate)="onActivate()"
+  (deactivate)="onDeactivate()"
+></router-outlet>
+<div class="page" *ngIf="outlet">
+  <div class="page__conteiner">
+    <app-table
+      dataType="clients"
+      [collection]="clients"
+      [columns]="columns"
+    ></app-table>
+  </div>
+</div>

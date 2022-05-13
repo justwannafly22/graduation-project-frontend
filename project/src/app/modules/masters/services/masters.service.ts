@@ -12,7 +12,7 @@ export class MastersService {
   constructor(private http: HttpClient) {}
 
   public getMaster(id: string): Observable<MastersResponseInterface> {
-    const url = `${environment.mastersApiUrl}/?id=${id}`;
+    const url = `${environment.mastersApiUrl}/${id}`;
     return this.http.get<MastersResponseInterface>(url).pipe( untilDestroyed(this),map((response: MastersResponseInterface) => response));
   }
 
@@ -20,9 +20,7 @@ export class MastersService {
     const url = environment.mastersApiUrl;
     return this.http
       .get<MastersResponseInterface[]>(url)
-      .pipe(untilDestroyed(this),map((response: MastersResponseInterface[]) => {
-          console.log("service",response);
-         return  response}));
+      .pipe(untilDestroyed(this),map((response: MastersResponseInterface[]) =>response ))
   }
 
   public addMaster(data: MastersRequestInterface): Observable<MastersResponseInterface> {

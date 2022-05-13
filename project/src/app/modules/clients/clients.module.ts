@@ -4,16 +4,26 @@ import { MainClientsComponent } from './components/main-clients/main-clients.com
 import { RouterModule } from '@angular/router';
 import { TableModule } from 'src/app/shared/components/table/table.module';
 import { ClientsService } from './services/clients.service';
+import { ChosenClientComponent } from './components/chosen-client/chosen-client.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputFieldsModule } from 'src/app/shared/components/inputs/input-fields.module';
 
 @NgModule({
   declarations: [
-    MainClientsComponent
+    MainClientsComponent,
+    ChosenClientComponent
   ],
   providers:[ClientsService],
   imports: [
     CommonModule,
     TableModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    InputFieldsModule
+  ],
+  exports:[
+    MainClientsComponent,
+    ChosenClientComponent
   ]
 })
 export class ClientsModule { }

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ChosenClientComponent } from '../clients/components/chosen-client/chosen-client.component';
 import { MainClientsComponent } from '../clients/components/main-clients/main-clients.component';
 import { MainDetailsComponent } from '../details/components/main-details/main-details.component';
+import { ChosenMasterComponent } from '../masters/components/chosen-master/chosen-master.component';
 import { MainMastersComponent } from '../masters/components/main-masters/main-masters.component';
 import { MainProductComponent } from '../products/components/main-product/main-product.component';
 import { MainRepairsComponent } from '../repairs/components/main-repairs/main-repairs.component';
@@ -58,18 +60,17 @@ const routes: Routes = [
       {
         path: 'masters',
         component: MainMastersComponent,
-        // children: [
-        //   {
-        //     path: 'add-employee',
-        //     data: { breadcrumb: { alias: 'add-employee' } },
-        //     component: AddEmployeeComponent,
-        //   },
-        //   {
-        //     path: 'account-employee',
-        //     data: { breadcrumb: { alias: 'account-employee' } },
-        //     component: AccountEmployeeComponent,
-        //   },
-        // ],
+        children: [
+          {
+            path: 'chosen-master',
+            component: ChosenMasterComponent,
+          },
+          // {
+          //   path: 'account-employee',
+          //   data: { breadcrumb: { alias: 'account-employee' } },
+          //   component: AccountEmployeeComponent,
+          // },
+        ],
       },
       
       {
@@ -91,18 +92,17 @@ const routes: Routes = [
       {
         path: 'clients',
         component: MainClientsComponent,
-        // children: [
-        //   {
-        //     path: 'add-employee',
-        //     data: { breadcrumb: { alias: 'add-employee' } },
-        //     component: AddEmployeeComponent,
-        //   },
+         children: [
+          {
+            path: 'chosen-client',
+            component: ChosenClientComponent,
+          },
         //   {
         //     path: 'account-employee',
         //     data: { breadcrumb: { alias: 'account-employee' } },
         //     component: AccountEmployeeComponent,
         //   },
-        // ],
+         ],
       },
       {
         path: 'reporting',

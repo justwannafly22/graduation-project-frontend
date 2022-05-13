@@ -7,6 +7,18 @@
     "back": "Back"
   },
   "CONTROLS": {
+    "Id":{
+      "id":"id"
+    },
+    "FullName":{
+      "fullName":"Full Name"
+    },
+    "Age":{
+      "age":"age"
+    },
+    "ContactNumber":{
+      "contactNumber":"Contact Number"
+    },
     "Email": {
       "email": "Email",
       "error": "Please enter a valid email address",
@@ -24,13 +36,7 @@
       "employee": "Employee",
       "hirer": "Hirer"
     },
-    "FullName": {
-      "firstName": "First name",
-      "secondName": "Long Last Name That Will Be Truncated"
-    },
-    "Age": {
-      "age": "age"
-    },
+  
     "Company": {
       "company": "Company"
     },
@@ -58,9 +64,7 @@
     "Responsibilities": {
       "responsibilities": "Responsibilities"
     },
-    "Tittle": {
-      "tittle": "Project name"
-    },
+ 
     "Specialization": {
       "specialization": "Specialization"
     },

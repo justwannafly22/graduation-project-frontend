@@ -9,6 +9,7 @@ import { MastersService } from '../../services/masters.service';
   styleUrls: ['./main-masters.component.css']
 })
 export class MainMastersComponent implements OnInit {
+  public outlet: boolean = true;
   public masters!:MastersResponseInterface[];
   constructor(private masterService: MastersService) { }
 
@@ -22,4 +23,8 @@ export class MainMastersComponent implements OnInit {
       this.masters = item
     })
   }
+  
+
+  onActivate = () => (this.outlet = false);
+  onDeactivate = () => (this.outlet = true);
 }

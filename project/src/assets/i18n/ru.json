@@ -7,6 +7,18 @@
     "back": "Назад"
   },
   "CONTROLS": {
+    "Id":{
+      "id":"Номер"
+    },
+    "FullName":{
+      "fullName":"Полное имя"
+    },
+    "Age":{
+      "age":"Возраст"
+    },
+    "ContactNumber":{
+      "contactNumber":"Контакт"
+    },
     "Email": {
       "email": "Почта",
       "error": "Пожалуйста, введите валидный адрес",
@@ -24,22 +36,13 @@
       "employee": "Соискатель",
       "hirer": "Работодатель"
     },
-    "FullName": {
-      "firstName": "Имя",
-      "secondName": "Фамилия"
-    },
-    "Age": {
-      "age": "Возраст"
-    },
-    "Company": {
+        "Company": {
       "company": "Компания"
     },
     "DataPicker": {
       "PickerStart": "Выберите дату начала"
     },
-    "DataPicker": {
-      "PickerEnd": "Выберите дату конца"
-    },
+    
     "TeamSize": {
       "Size": "Размер команды"
     },
@@ -58,9 +61,7 @@
     "Responsibilities": {
       "responsibilities": "Обязанности"
     },
-    "Tittle": {
-      "tittle": "Название проекта"
-    },
+  
     "Specialization": {
       "specialization": "Специализация"
     },
