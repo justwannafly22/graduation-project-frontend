@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChosenClientComponent } from '../clients/components/chosen-client/chosen-client.component';
+import { ClientAddComponent } from '../clients/components/client-add/client-add.component';
 import { MainClientsComponent } from '../clients/components/main-clients/main-clients.component';
 import { MainDetailsComponent } from '../details/components/main-details/main-details.component';
 import { ChosenMasterComponent } from '../masters/components/chosen-master/chosen-master.component';
 import { MainMastersComponent } from '../masters/components/main-masters/main-masters.component';
+import { MasterAddComponent } from '../masters/components/master-add/master-add.component';
 import { MainProductComponent } from '../products/components/main-product/main-product.component';
 import { MainRepairsComponent } from '../repairs/components/main-repairs/main-repairs.component';
 import { MainReportingComponent } from '../reporting/components/main-reporting/main-reporting.component';
@@ -65,14 +67,13 @@ const routes: Routes = [
             path: 'chosen-master',
             component: ChosenMasterComponent,
           },
-          // {
-          //   path: 'account-employee',
-          //   data: { breadcrumb: { alias: 'account-employee' } },
-          //   component: AccountEmployeeComponent,
-          // },
+          {
+            path: 'add-master',
+            component: MasterAddComponent,
+          },
         ],
       },
-      
+
       {
         path: 'products',
         component: MainProductComponent,
@@ -92,17 +93,16 @@ const routes: Routes = [
       {
         path: 'clients',
         component: MainClientsComponent,
-         children: [
+        children: [
           {
             path: 'chosen-client',
             component: ChosenClientComponent,
           },
-        //   {
-        //     path: 'account-employee',
-        //     data: { breadcrumb: { alias: 'account-employee' } },
-        //     component: AccountEmployeeComponent,
-        //   },
-         ],
+          {
+            path: 'add-client',
+            component: ClientAddComponent,
+          },
+        ],
       },
       {
         path: 'reporting',
@@ -120,7 +120,6 @@ const routes: Routes = [
         //   },
         // ],
       },
-     
     ],
   },
 ];

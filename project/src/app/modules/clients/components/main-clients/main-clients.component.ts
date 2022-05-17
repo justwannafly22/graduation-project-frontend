@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ClientsResponseInterface } from 'src/app/shared/interfaces/clients/clients-response.interface';
 import { Columns } from 'src/app/shared/interfaces/columns.interface';
 import { ClientsService } from '../../services/clients.service';
@@ -11,7 +12,7 @@ import { ClientsService } from '../../services/clients.service';
 export class MainClientsComponent implements OnInit {
   public outlet: boolean = true;
   public clients!:ClientsResponseInterface[];
-  constructor(private clientService:ClientsService) { }
+  constructor(private clientService:ClientsService, private router : Router) { }
 
   public columns: Columns[] = [
     { headerName: 'Name', dataField: 'fullName',type: "text"},
@@ -20,7 +21,9 @@ export class MainClientsComponent implements OnInit {
     { headerName: 'Email', dataField: 'email',type: "text" },
     // { headerName: 'Master', dataField: 'masterId',type: "text" },
   ];
- 
+  addClient():void{
+    this.router.navigate(['body/clients/add-client']);
+  }
 
  onActivate = () => (this.outlet = false);
   onDeactivate = () => (this.outlet = true);

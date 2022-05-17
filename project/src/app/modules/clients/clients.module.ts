@@ -7,11 +7,13 @@ import { ClientsService } from './services/clients.service';
 import { ChosenClientComponent } from './components/chosen-client/chosen-client.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InputFieldsModule } from 'src/app/shared/components/inputs/input-fields.module';
+import { ClientAddComponent } from './components/client-add/client-add.component';
 
 @NgModule({
   declarations: [
     MainClientsComponent,
-    ChosenClientComponent
+    ChosenClientComponent,
+    ClientAddComponent
   ],
   providers:[ClientsService],
   imports: [
@@ -23,7 +25,8 @@ import { InputFieldsModule } from 'src/app/shared/components/inputs/input-fields
   ],
   exports:[
     MainClientsComponent,
-    ChosenClientComponent
+    ChosenClientComponent,
+    ClientAddComponent
   ]
 })
 export class ClientsModule { }

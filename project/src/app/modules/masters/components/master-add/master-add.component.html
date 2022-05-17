@@ -5,9 +5,8 @@
         <li>
           <app-description
             class="page__form-input"
-            formControlName="id"
-            spirit="CONTROLS.Id.id" 
-            disablet="true"
+            formControlName="name"
+            spirit="CONTROLS.FullName.name"
           ></app-description>
         </li>
       </ul>
@@ -15,8 +14,8 @@
         <li>
           <app-description
             class="page__form-input"
-            formControlName="fullName"
-            spirit="CONTROLS.FullName.fullName"
+            formControlName="surname"
+            spirit="CONTROLS.FullName.surname"
           ></app-description>
         </li>
       </ul>
@@ -39,10 +38,15 @@
         </li>
       </ul>
       <div class="page__footer">
-        <button mat-raised-button color="primary" type="submit" (click)="onSub()">Ok</button>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          (click)="onSub()"
+        >
+          Add
+        </button>
         <button mat-stroked-button (click)="back()">Back</button>
-        <button mat-stroked-button (click)="rm()">Delete</button>
-        <button mat-stroked-button (click)="edit()">Edit</button>
       </div>
     </form>
   </div>

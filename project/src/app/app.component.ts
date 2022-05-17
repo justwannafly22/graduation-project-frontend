@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersistanceService } from './shared/services/persistanse.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'project';
-  ngOnInit(): void {}
+  constructor(private persistanseServise: PersistanceService){
+  }
+  ngOnInit(): void {
+    this.persistanseServise.set('part','Client');
+  }
 }

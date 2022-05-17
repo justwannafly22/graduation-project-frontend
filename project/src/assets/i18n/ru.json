@@ -10,8 +10,13 @@
     "Id":{
       "id":"Номер"
     },
+    "MasterId":{
+      "masterId":"Номер Мастера"
+    },
     "FullName":{
-      "fullName":"Полное имя"
+      "fullName":"ФИО",
+      "name":"Имя",
+      "surname":"Фамилия"
     },
     "Age":{
       "age":"Возраст"

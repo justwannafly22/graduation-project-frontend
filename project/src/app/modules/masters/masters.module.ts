@@ -7,13 +7,15 @@ import { ChosenMasterComponent } from './components/chosen-master/chosen-master.
 import { RouterModule } from '@angular/router';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { InputFieldsModule } from 'src/app/shared/components/inputs/input-fields.module';
+import { MasterAddComponent } from './components/master-add/master-add.component';
 
 
 
 @NgModule({
   declarations: [
     MainMastersComponent,
-    ChosenMasterComponent
+    ChosenMasterComponent,
+    MasterAddComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { InputFieldsModule } from 'src/app/shared/components/inputs/input-fields
   providers:[MastersService],
   exports:[
     MainMastersComponent,
-    ChosenMasterComponent
+    ChosenMasterComponent,
+    MasterAddComponent
   ]
 })
 export class MastersModule { }

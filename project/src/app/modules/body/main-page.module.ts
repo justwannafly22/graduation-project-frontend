@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -19,13 +18,17 @@ import { MainHeaderComponent } from './components/main-header/main-header.compon
 import { MainComponent } from './components/main/main.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { MainPageRoutingModule } from './main-page-routing.module';
+import { PersonalAreaComponent } from './components/personal-area/personal-area.component';
+import {  ReactiveFormsModule } from '@angular/forms';
+import { InputFieldsModule } from 'src/app/shared/components/inputs/input-fields.module';
+import { TableModule } from 'src/app/shared/components/table/table.module';
 
 @NgModule({
-  declarations: [MainComponent, SideBarComponent, MainHeaderComponent],
+  declarations: [MainComponent, SideBarComponent, MainHeaderComponent, PersonalAreaComponent],
   providers: [ProductsService],
   imports: [
     RouterModule,
-    // NewsModule,
+    ReactiveFormsModule,
     ProductsModule,
     CommonModule,
     MainPageRoutingModule,
@@ -34,11 +37,12 @@ import { MainPageRoutingModule } from './main-page-routing.module';
     TranslateModule,
     MatButtonModule,
     MaterialExampleModule,
-    MatListModule,
-    ClientsModule,
+    TableModule,
+    InputFieldsModule,
     DetailsModule,
     MastersModule,
     RepairsModule,
+    ClientsModule,
     ReportingModule
   ],
   exports: [],

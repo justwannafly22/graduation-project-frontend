@@ -10,8 +10,13 @@
     "Id":{
       "id":"id"
     },
+    "MasterId":{
+      "masterId":"Master Id"
+    },
     "FullName":{
-      "fullName":"Full Name"
+      "fullName":"Full Name",
+      "name":"Name",
+      "surname":"Surname"
     },
     "Age":{
       "age":"age"

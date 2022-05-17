@@ -5,6 +5,7 @@ import { map, Observable } from "rxjs";
 import { environment } from "src/app/environments/environment";
 import { MastersRequestInterface } from "src/app/shared/interfaces/masters/masters-request.interface";
 import { MastersResponseInterface } from "src/app/shared/interfaces/masters/masters-response.interface";
+import { SecondMastersRequestInterface } from "src/app/shared/interfaces/masters/second-request.interface";
 
 @UntilDestroy()
 @Injectable()
@@ -23,19 +24,21 @@ export class MastersService {
       .pipe(untilDestroyed(this),map((response: MastersResponseInterface[]) =>response ))
   }
 
-  public addMaster(data: MastersRequestInterface): Observable<MastersResponseInterface> {
-    const url = environment.productApiUrl + '/cv';
+  public addMaster(data: SecondMastersRequestInterface): Observable<MastersResponseInterface> {
+    const url = environment.mastersApiUrl;
     return this.http
       .post<MastersResponseInterface>(url, data)
       .pipe(untilDestroyed(this),map((response: MastersResponseInterface) => response));
   }
 
   public delMaster(id: string): Observable<{}> {
-    const url = `${environment.productApiUrl}/cv`;
-    return this.http.request('delete', url, { body: { id: id } });
+    const url = `${environment.mastersApiUrl}/${id}`;
+    return this.http.delete(url);
   }
-  public changeMaster(data: MastersRequestInterface): Observable<MastersResponseInterface> {
-    const url = environment.productApiUrl + '/cv';
+  public changeMaster(data: SecondMastersRequestInterface,id:string): Observable<MastersResponseInterface> {
+    const url = `${environment.mastersApiUrl}/${id}`;
+    console.log("с",data,id);
+    
     return this.http
       .put<MastersResponseInterface>(url, data)
       .pipe(untilDestroyed(this),map((response: MastersResponseInterface) => response));

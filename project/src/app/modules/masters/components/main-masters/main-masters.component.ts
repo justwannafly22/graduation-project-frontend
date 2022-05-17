@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Columns } from 'src/app/shared/interfaces/columns.interface';
 import { MastersResponseInterface } from 'src/app/shared/interfaces/masters/masters-response.interface';
 import { MastersService } from '../../services/masters.service';
@@ -11,7 +12,7 @@ import { MastersService } from '../../services/masters.service';
 export class MainMastersComponent implements OnInit {
   public outlet: boolean = true;
   public masters!:MastersResponseInterface[];
-  constructor(private masterService: MastersService) { }
+  constructor(private masterService: MastersService, private router:Router) { }
 
   public columns: Columns[] = [
     { headerName: 'FullName', dataField: 'fullName',type: "text"},
@@ -23,7 +24,9 @@ export class MainMastersComponent implements OnInit {
       this.masters = item
     })
   }
-  
+  addMaster():void{
+    this.router.navigate(['body/masters/add-master']);
+  }
 
   onActivate = () => (this.outlet = false);
   onDeactivate = () => (this.outlet = true);

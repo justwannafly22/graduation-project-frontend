@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
+import { PersistanceService } from "src/app/shared/services/persistanse.service";
 import { TranslationService } from "src/app/shared/services/translate.service";
 
 
@@ -13,6 +14,7 @@ import { TranslationService } from "src/app/shared/services/translate.service";
 export class MainHeaderComponent implements OnInit {
   isLoggedIn$!: Observable<boolean>;
   isAnonymous$!: Observable<boolean>;
+  public part:string = this.persistanseService.get('part');
   // currentUser$!: Observable<
   //   CurrentUserInterface | VerifieldUserInterface | null
   // >;
@@ -21,6 +23,7 @@ export class MainHeaderComponent implements OnInit {
   constructor(
     // private themeService: ThemeService,
     private translationService: TranslationService,
+    private persistanseService: PersistanceService
     // private store: Store
   ) {}
 

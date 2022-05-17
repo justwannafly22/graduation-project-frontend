@@ -22,6 +22,7 @@ import { MyErrorStateMatcher } from 'src/app/shared/Validators/error-state-match
 export class DescriptionComponent implements OnInit, ControlValueAccessor {
   @Input('dataType') dataType: string = 'text';
   @Input('spirit') spirit!: string;
+  @Input('disablet') disablet!: string;
   descriptionFormControl = new FormControl('', [Validators.required]);
   onChange: any;
   onTouch: any;

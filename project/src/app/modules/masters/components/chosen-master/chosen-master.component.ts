@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MastersRequestInterface } from 'src/app/shared/interfaces/masters/masters-request.interface';
+import { SecondMastersRequestInterface } from 'src/app/shared/interfaces/masters/second-request.interface';
 import { PersistanceService } from 'src/app/shared/services/persistanse.service';
 import { MastersService } from '../../services/masters.service';
 
@@ -18,11 +20,12 @@ export class ChosenMasterComponent implements OnInit {
     private persistanceService: PersistanceService,
     private masterService: MastersService
   ) {}
+ 
 
   ngOnInit(): void {
     this.initializeForm();
-
   }
+
   initializeForm():void{
     this.mastersFormGroup = this.mastersFormBuiler.group({
       id:['',Validators.required],
@@ -37,15 +40,29 @@ export class ChosenMasterComponent implements OnInit {
       fullName:item.fullName,
       age:item.age,
       contactNumber:item.contactNumber
-    })
-    })
-    console.log(this.id);
-    
+    });
+    });
   }
   back():void{
     this.router.navigate(['/body/masters']);
   }
+  rm():void{
+    this.masterService.delMaster(this.id).subscribe();
+    this.initializeForm();
+  }
+  edit():void{
+    let name = this.mastersFormGroup.value.fullName;
+    name = name.split(" ");
+    console.log("name",name);
+    let age = Number(this.mastersFormGroup.value.age);
+    let val:SecondMastersRequestInterface = {name:name[0],surname:name[1],age:age,contactNumber:this.mastersFormGroup.value.contactNumber};
+    console.log("val",val);
+    this.masterService.changeMaster(val,this.id).subscribe(item=>{
+      console.log("item",item);
+      
+    });
+  }
   onSub():void{
-    console.log("masters submiting");
+    console.log("masters submiting",this.mastersFormGroup.value);
   }
 }
