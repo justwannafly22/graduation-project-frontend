@@ -7,22 +7,27 @@
     "back": "Back"
   },
   "CONTROLS": {
-    "Id":{
-      "id":"id"
+    "Local": { "local": " Place of work" },
+    "Diagnostic":{
+      "diagnostic":"Diagnostic requirement"
     },
-    "MasterId":{
-      "masterId":"Master Id"
+    "Id": {
+      "id": "id"
     },
-    "FullName":{
-      "fullName":"Full Name",
-      "name":"Name",
-      "surname":"Surname"
+    "MasterId": {
+      "masterId": "Master Id"
     },
-    "Age":{
-      "age":"age"
+    "FullName": {
+      "fullName": "Full Name",
+      "name": "Name",
+      "surname": "Surname",
+      "nameSecond": "Name"
     },
-    "ContactNumber":{
-      "contactNumber":"Contact Number"
+    "Age": {
+      "age": "age"
+    },
+    "ContactNumber": {
+      "contactNumber": "Contact Number"
     },
     "Email": {
       "email": "Email",
@@ -41,7 +46,7 @@
       "employee": "Employee",
       "hirer": "Hirer"
     },
-  
+
     "Company": {
       "company": "Company"
     },
@@ -69,7 +74,7 @@
     "Responsibilities": {
       "responsibilities": "Responsibilities"
     },
- 
+
     "Specialization": {
       "specialization": "Specialization"
     },
@@ -106,6 +111,7 @@
     "put": "Edit",
     "create": "Create",
     "view": "View",
-    "add": "Add"
+    "add": "Add",
+    "createApplication":"Create application"
   }
 }

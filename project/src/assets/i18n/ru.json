@@ -7,6 +7,10 @@
     "back": "Назад"
   },
   "CONTROLS": {
+    "Local": { "local": "Место проведения работ" },
+    "Diagnostic":{
+      "diagnostic":"Диагностика"
+    },
     "Id":{
       "id":"Номер"
     },
@@ -16,7 +20,8 @@
     "FullName":{
       "fullName":"ФИО",
       "name":"Имя",
-      "surname":"Фамилия"
+      "surname":"Фамилия",
+      "nameSecond": "Название"
     },
     "Age":{
       "age":"Возраст"
@@ -103,6 +108,7 @@
     "put": "Изменить",
     "create": "Добавить",
     "view": "Просмотр",
-    "add": "Добавить"
+    "add": "Добавить",
+    "createApplication":"Подать заявку"
   }
 }

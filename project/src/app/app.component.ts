@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   constructor(private persistanseServise: PersistanceService){
   }
   ngOnInit(): void {
-    this.persistanseServise.set('part','Client');
+   // this.persistanseServise.set('part','Client');
+   this.persistanseServise.set('part','Master');
   }
 }

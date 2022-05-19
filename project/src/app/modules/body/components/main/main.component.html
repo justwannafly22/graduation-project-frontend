@@ -2,9 +2,11 @@
   <app-main-header></app-main-header>
   <div class="page__body" [ngSwitch]="part">
     <ng-template [ngSwitchCase]="'Client'">
-      <app-personal-area></app-personal-area>
+      <app-personal-areaa></app-personal-areaa>
     </ng-template>
-    <ng-template [ngSwitchCase]="'Master'"></ng-template>
+    <ng-template [ngSwitchCase]="'Master'">
+      <app-personal-areaa></app-personal-areaa>
+    </ng-template>
     <ng-template [ngSwitchCase]="'Admin'"
       ><app-side-bar class="page__side-bar"></app-side-bar
     ></ng-template>

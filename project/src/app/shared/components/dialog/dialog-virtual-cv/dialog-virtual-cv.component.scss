@@ -1,0 +1,33 @@
+.page{
+  width: 370px;
+  .page__header{
+    text-align:center;
+  }
+  .page__main{
+    ul {
+      text-align: center;
+      margin: 0px 0 35px 0;
+    }
+  
+    ul li {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      margin: 0 25px 0px 0;
+      vertical-align: top;
+      line-height: normal;
+      display: inline;
+      zoom: 1;
+      .page__form-input {
+        height: inherit;
+      }
+    }
+    .page__form-input{
+      width: 300px;
+      margin: 0 25px 0 0 ;
+    }
+    .page__footer{
+      text-align:right;
+    }
+  }
+}

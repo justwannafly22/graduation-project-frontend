@@ -1,0 +1,48 @@
+<div class="page">
+  <div class="page__header"><h1>Оформление заказа</h1></div>
+  <div class="page__main">
+    <form [formGroup]="formGroup">
+      <ul>
+        <li>
+          <app-description
+            class="page__form-input"
+            formControlName="name"
+            spirit="CONTROLS.FullName.nameSecond"
+          ></app-description>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <app-description
+            class="page__form-input"
+            formControlName="location"
+            spirit="CONTROLS.Local.local"
+          ></app-description>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <app-description
+            class="page__form-input"
+            formControlName="description"
+            spirit="CONTROLS.Description.description"
+          ></app-description>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <mat-slide-toggle [checked]="checked" class="page__form-input" formControlName="diagnostic">{{
+            "CONTROLS.Diagnostic.diagnostic" | translate
+          }}</mat-slide-toggle>
+        </li>
+      </ul>
+
+      <div class="page__footer">
+        <button mat-stroked-button mat-button color="warn" (click)="submit()">
+          Sent
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

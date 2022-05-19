@@ -1,0 +1,50 @@
+.page {
+  height: 100%;
+  width: 1765px;
+  display: flex;
+  justify-content: space-between;
+}
+.page__left-bar {
+  width: 50%;
+  height: 93vh;
+}
+.page__left-bar-header {
+  height: 300px;
+  width: 100%;
+  background-color: white;
+}
+.page__area-image {
+  font-size: 200px;
+  margin: 20px 0 0 350px;
+}
+.page__left-bar-body {
+}
+.page__right-bar {
+  width: 50%;
+  height: 93vh;
+  background-color: white;
+}
+ul {
+  text-align: center;
+  margin: 0px 0 5px 0;
+  width: 400px;
+}
+
+ul li {
+  display: inline-block;
+  width: 320px;
+  height: 80px;
+  margin: 0 0px 0px 0;
+  /* vertical-align: top; */
+  line-height: normal;
+  display: inline;
+}
+.page__form-input {
+  height: inherit;
+  margin:0 0 0 200px;
+  width: 100%;
+}
+.page__footer{
+  display:flex;
+  justify-content:space-around;
+}

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PersonalAreaComponent } from './personal-area.component';
+import { DialogVirtualCvComponent } from './dialog-virtual-cv.component';
 
-describe('PersonalAreaComponent', () => {
-  let component: PersonalAreaComponent;
-  let fixture: ComponentFixture<PersonalAreaComponent>;
+describe('DialogVirtualCvComponent', () => {
+  let component: DialogVirtualCvComponent;
+  let fixture: ComponentFixture<DialogVirtualCvComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PersonalAreaComponent ]
+      declarations: [ DialogVirtualCvComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PersonalAreaComponent);
+    fixture = TestBed.createComponent(DialogVirtualCvComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

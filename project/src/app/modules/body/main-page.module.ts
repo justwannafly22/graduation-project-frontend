@@ -18,13 +18,13 @@ import { MainHeaderComponent } from './components/main-header/main-header.compon
 import { MainComponent } from './components/main/main.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { MainPageRoutingModule } from './main-page-routing.module';
-import { PersonalAreaComponent } from './components/personal-area/personal-area.component';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { InputFieldsModule } from 'src/app/shared/components/inputs/input-fields.module';
 import { TableModule } from 'src/app/shared/components/table/table.module';
+import { PersonalAreaaComponent } from './components/personal-areaa/personal-areaa.component';
 
 @NgModule({
-  declarations: [MainComponent, SideBarComponent, MainHeaderComponent, PersonalAreaComponent],
+  declarations: [MainComponent, SideBarComponent, MainHeaderComponent, PersonalAreaaComponent],
   providers: [ProductsService],
   imports: [
     RouterModule,
@@ -45,7 +45,7 @@ import { TableModule } from 'src/app/shared/components/table/table.module';
     ClientsModule,
     ReportingModule
   ],
-  exports: [],
+  exports: [PersonalAreaaComponent],
 })
 export class MainPageModule {
   constructor(private translateService: TranslateService) {

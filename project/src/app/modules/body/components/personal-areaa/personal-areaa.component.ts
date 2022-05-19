@@ -1,24 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ClientsService } from 'src/app/modules/clients/services/clients.service';
+import { DialogVirtualCvComponent } from 'src/app/shared/components/dialog/dialog-virtual-cv/dialog-virtual-cv.component';
 import { SecondClientsRequestInterface } from 'src/app/shared/interfaces/clients/second-clients-request.interface';
 import { PersistanceService } from 'src/app/shared/services/persistanse.service';
 
 @Component({
-  selector: 'app-personal-area',
-  templateUrl: './personal-area.component.html',
-  styleUrls: ['./personal-area.component.css']
+  selector: 'app-personal-areaa',
+  templateUrl: './personal-areaa.component.html',
+  styleUrls: ['./personal-areaa.component.css']
 })
-export class PersonalAreaComponent implements OnInit {
-  public clientsFormGroup!:FormGroup;
+export class PersonalAreaaComponent implements OnInit {
+  public currentDataByApplication:any;
+  public displayDialog:boolean = false;
+public clientsFormGroup!:FormGroup;
   public id!:any;
   public orders!:any[];
   constructor(private clientsService:ClientsService,
     private clientsFormBuilder:FormBuilder,
     private persistanceService:PersistanceService,
+    public dialog: MatDialog
     ) { }
   ngOnInit(): void {
     this.initializeForm();
+    this.currentDataByApplication = "qwe";
   }
   initializeForm():void{
     this.clientsFormGroup = this.clientsFormBuilder.group({
@@ -52,5 +58,12 @@ export class PersonalAreaComponent implements OnInit {
     this.clientsService.changeClient(val,this.id).subscribe(item=>{
       this.initializeForm();
     });
+  }
+  app(): void{
+    const dialogRef = this.dialog.open(DialogVirtualCvComponent, {
+      width: 'auto',
+      data: { user: this.id, data: this.currentDataByApplication },
+    });
+    dialogRef.afterClosed().subscribe((result) => {});
   }
 }
