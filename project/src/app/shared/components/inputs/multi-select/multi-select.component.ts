@@ -30,15 +30,17 @@ import {
   ],
 })
 export class MultiSelectComponent implements OnInit, ControlValueAccessor {
-  @Input('multiple') multiple: boolean = true;
+  @Input('multiple') multiple: boolean = false;
   @Input('spirit') spirit!: string;
   @Input() list!: any[] | any;
   //
-  allList?: any[];
+  allList?: any[]= [{name:"expectation",id:"expectation"},
+  {name:"during",id:"during"},
+  {name:"ready",id:"ready"}];
   // @Input() allList?:
   //   | BasicResponseInterface[]
-  //   | SkillsResponseInterface[]
-  //   | LanguagesResponseInterface[]
+  //   | SkillsResponseInterface[]leshka124@mail.ru
+  //   | LanguagesResponseInterface[]3fa85f64-5717-4562-b3fc-2c963f66afa6
   //   | ProjectResponseInterface[];
   control = new FormControl();
   onChange: any | any[];
@@ -59,6 +61,5 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
         this.onChange(data);
       }
     });
-    console.log('+', this.list);
   }
 }

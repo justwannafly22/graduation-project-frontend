@@ -112,6 +112,7 @@
     "create": "Create",
     "view": "View",
     "add": "Add",
-    "createApplication":"Create application"
+    "createApplication":"Create application",
+    "openApplication": "Open application"
   }
 }

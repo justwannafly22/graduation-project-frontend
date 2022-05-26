@@ -12,6 +12,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { environment } from 'src/app/environments/environment';
+import { AuthServices } from './services/auth.service';
 @NgModule({
   declarations: [AuthLoginComponent, AuthRegisterComponent, AuthBasicComponent],
   imports: [
@@ -26,6 +27,7 @@ import { environment } from 'src/app/environments/environment';
     ReactiveFormsModule,
     MatInputModule,
   ],
+  providers:[AuthServices]
 })
 export class AuthModule {
   constructor(private translateService: TranslateService) {

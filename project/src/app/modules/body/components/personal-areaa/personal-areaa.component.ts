@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ClientsService } from 'src/app/modules/clients/services/clients.service';
+import { DialogForMaster } from 'src/app/shared/components/dialog/dialog-virtual-cv-for-master/dialog-master.component';
 import { DialogVirtualCvComponent } from 'src/app/shared/components/dialog/dialog-virtual-cv/dialog-virtual-cv.component';
 import { SecondClientsRequestInterface } from 'src/app/shared/interfaces/clients/second-clients-request.interface';
 import { PersistanceService } from 'src/app/shared/services/persistanse.service';
@@ -12,6 +13,7 @@ import { PersistanceService } from 'src/app/shared/services/persistanse.service'
   styleUrls: ['./personal-areaa.component.css']
 })
 export class PersonalAreaaComponent implements OnInit {
+  public currentRole = this.persistanceService.get('part');
   public currentDataByApplication:any;
   public displayDialog:boolean = false;
 public clientsFormGroup!:FormGroup;
@@ -34,20 +36,21 @@ public clientsFormGroup!:FormGroup;
       age:[''],
       contactNumber:[''],
       email:[''],
-      masterId:[''],
     });
-    this.id = 'd070b35e-b5a7-4c75-b144-08da37f66c77'//);//this.persistanceService.get('accountId');
-    this.clientsService.getClient(this.id).subscribe(item=>{
-      let s = item.fullName.split(" ");
+    this.id = this.persistanceService.get('id')//);//this.persistanceService.get('accountId');
+    // this.clientsService.getClient(this.id).subscribe(item=>{
+      let fullName = this.persistanceService.get('fullName');
+      let s = fullName.split(" ");
+      let age = this.persistanceService.get('age');
+      let contactNumber = this.persistanceService.get('contactNumber');
+      let email = this.persistanceService.get('email');
     this.clientsFormGroup.patchValue({
       id:this.id,
       name:s[0],
       surname:s[1],
-      age:item.age,
-      contactNumber:item.contactNumber,
-      email:item.email,
-      masterId:item.masterId
-    });
+      age:age,
+      contactNumber:contactNumber,
+      email:email,
     });
   }
   edit(){
@@ -59,8 +62,15 @@ public clientsFormGroup!:FormGroup;
       this.initializeForm();
     });
   }
-  app(): void{
+  appClient(): void{
     const dialogRef = this.dialog.open(DialogVirtualCvComponent, {
+      width: 'auto',
+      data: { user: this.id, data: this.currentDataByApplication },
+    });
+    dialogRef.afterClosed().subscribe((result) => {});
+  }
+  appMaster(): void{
+    const dialogRef = this.dialog.open(DialogForMaster, {
       width: 'auto',
       data: { user: this.id, data: this.currentDataByApplication },
     });

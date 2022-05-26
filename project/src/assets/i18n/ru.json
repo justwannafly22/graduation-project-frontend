@@ -109,6 +109,7 @@
     "create": "Добавить",
     "view": "Просмотр",
     "add": "Добавить",
-    "createApplication":"Подать заявку"
+    "createApplication":"Подать заявку",
+    "openApplication": "Открыть заявку"
   }
 }

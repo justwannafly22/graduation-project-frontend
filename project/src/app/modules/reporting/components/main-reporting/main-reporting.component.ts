@@ -13,11 +13,11 @@ export class MainReportingComponent implements OnInit {
     const myChart = new Chart('myChart', {
       type: 'bar',
       data: {
-        labels: ['R', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Детали ', 'Починки', 'Мастера', 'Клиенты', 'Техника'],
         datasets: [
           {
             label: 'Reportoings',
-            data: [12, 19, 3, 5, 2, 100],
+            data: [89, 100, 3, 29, 70],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
