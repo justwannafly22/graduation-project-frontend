@@ -32,28 +32,18 @@
       </ul>
       <ul>
         <li>
-          <div class="page__main-technic">
-            <div class="page__main-technic-choose">
-              <app-multi-select></app-multi-select>
-            </div>
-            <div class="page__main-technic-create">
-              <button mat-stroked-button mat-button color="warn" (click)="submit()">
-                Добавить технику
-              </button>
-            </div>
-          </div>
+          <mat-slide-toggle [checked]="checked" class="page__form-input" formControlName="diagnostic">{{
+            "CONTROLS.Diagnostic.diagnostic" | translate
+          }}</mat-slide-toggle>
         </li>
       </ul>
       <ul>
         <li>
-          <mat-slide-toggle
-            [checked]="checked"
-            class="page__form-input"
-            formControlName="diagnostic"
-            >{{
-              "CONTROLS.Diagnostic.diagnostic" | translate
-            }}</mat-slide-toggle
-          >
+          <app-multi-select
+          class="page__form-input"
+          formControlName="status"
+          spirit="Status"
+        ></app-multi-select>
         </li>
       </ul>
 

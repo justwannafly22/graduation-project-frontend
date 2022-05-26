@@ -43,7 +43,7 @@ export class AuthRegisterComponent implements OnInit {
       : (this.displayCompany = false);
   };
   public submit() {
-    this.formGroup.value.contactNumber = `+3${this.formGroup.value.contactNumber}`;
+    this.formGroup.value.contactNumber = `${this.formGroup.value.contactNumber}`;
     console.log('register', this.formGroup.value);
     let request: any = {
       email: this.formGroup.value.email,

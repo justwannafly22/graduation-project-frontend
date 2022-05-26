@@ -71,6 +71,9 @@
           >
             {{ "BUTTONS.put" | translate }}
           </button>
+          <button *ngIf="currentRole=='Client'" mat-stroked-button mat-button color="warn"  (click)="addTechnic()">
+            Добавить технику
+          </button>
           <button *ngIf="currentRole=='Client'" mat-stroked-button mat-button color="warn"  (click)="appClient()">
             {{ "BUTTONS.createApplication" | translate }}
           </button>

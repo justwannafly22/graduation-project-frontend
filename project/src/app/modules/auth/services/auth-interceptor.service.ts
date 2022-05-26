@@ -14,7 +14,7 @@ import { PersistanceService } from "src/app/shared/services/persistanse.service"
       const token = this.persistanseService.get('accessToken');
       request = request.clone({
         setHeaders: {
-            Bearer: token ? token: '',
+            Bearer: token ? '': '',
         },
       });
       return next.handle(request);

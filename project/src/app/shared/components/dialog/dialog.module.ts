@@ -14,9 +14,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { DialogForMaster } from './dialog-virtual-cv-for-master/dialog-master.component';
+import { DialogAddTechnick } from './dialog-add-technic/dialog-add-technic.component';
 
 @NgModule({
-  declarations: [DialogVirtualCvComponent,DialogForMaster],
+  declarations: [DialogVirtualCvComponent,DialogForMaster,DialogAddTechnick],
   providers: [],
   imports: [
     CommonModule,

@@ -76,4 +76,7 @@ public clientsFormGroup!:FormGroup;
     });
     dialogRef.afterClosed().subscribe((result) => {});
   }
+  addTechnic():void{
+
+  }
 }
