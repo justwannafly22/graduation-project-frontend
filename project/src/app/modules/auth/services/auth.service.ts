@@ -25,10 +25,15 @@ export class AuthServices {
     const url = environment.authApiUrl + '/login';
     return this.http.post<LoginResponseIterface>(url, data).pipe(map((i) => i));
   }
+
   getPermissions(token: string): Observable<PermResponseInterface> {
     const url = environment.authApiUrl + '/get-permissions';
+    const request = {
+      token: token
+    };
+
     return this.http
-      .post<PermResponseInterface>(url, token)
+      .post<PermResponseInterface>(url, request)
       .pipe(map((response: PermResponseInterface) => response));
   }
 }

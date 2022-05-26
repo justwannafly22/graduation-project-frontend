@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClientsService } from 'src/app/modules/clients/services/clients.service';
+import { SecondClientsRequestInterface } from 'src/app/shared/interfaces/clients/second-clients-request.interface';
 import { PersistanceService } from 'src/app/shared/services/persistanse.service';
 import { AuthServices } from '../../services/auth.service';
 
@@ -53,21 +54,32 @@ export class AuthRegisterComponent implements OnInit {
     this.authService.registration(request).subscribe((item) => {
       console.log(item.token);
       this.persistanseService.set('accessToken', item.token);
+      this.authService.getPermissions(item.token).subscribe((item) => {
 
-      this.clientService.addClient(this.formGroup.value).subscribe((item) => {
-        console.log(item.fullName);
-        this.persistanseService.set('age', item.age);
-        this.persistanseService.set('contactNumber', item.contactNumber);
-        this.persistanseService.set('email', item.email);
-        this.persistanseService.set('fullName', item.fullName);
-        this.persistanseService.set('id', item.id);
-        this.persistanseService.set('attendeeId', item.attendeeId);
-        this.persistanseService.set('part','Client');
-        if(item){
-          this.router.navigate(['/body/clients']);
+        let client: SecondClientsRequestInterface = {
+          age: this.formGroup.value.age,
+          email: this.formGroup.value.email,
+          contactNumber: this.formGroup.value.contactNumber,
+          name: this.formGroup.value.name,
+          surname: this.formGroup.value.surname,
+          attendeeId: item.attendeeId
+        };
 
-        }
-      });
+        this.clientService.addClient(client).subscribe((item) => {
+          console.log(item.fullName);
+          this.persistanseService.set('age', item.age);
+          this.persistanseService.set('contactNumber', item.contactNumber);
+          this.persistanseService.set('email', item.email);
+          this.persistanseService.set('fullName', item.fullName);
+          this.persistanseService.set('id', item.id);
+          this.persistanseService.set('attendeeId', item.attendeeId);
+          this.persistanseService.set('part','Client');
+          if(item){
+            this.router.navigate(['/body/clients']);
+  
+          }
+        });
+      })
     });
   }
 }
