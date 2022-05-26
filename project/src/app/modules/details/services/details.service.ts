@@ -25,18 +25,18 @@ export class DetailsService {
          return  response}));
   }
 
-  public addCv(data: ProductRequestInterface): Observable<ProductResponseInterface> {
+  public addDetail(data: ProductRequestInterface): Observable<ProductResponseInterface> {
     const url = environment.replacedPartApiUrl + '/cv';
     return this.http
       .post<ProductResponseInterface>(url, data)
       .pipe(untilDestroyed(this),map((response: ProductResponseInterface) => response));
   }
 
-  public delCv(id: string): Observable<{}> {
+  public delDetail(id: string): Observable<{}> {
     const url = `${environment.replacedPartApiUrl}/cv`;
     return this.http.request('delete', url, { body: { id: id } });
   }
-  public changeCv(data: ProductRequestInterface): Observable<ProductResponseInterface> {
+  public changeDetail(data: ProductRequestInterface): Observable<ProductResponseInterface> {
     const url = environment.replacedPartApiUrl + '/cv';
     return this.http
       .put<ProductResponseInterface>(url, data)
