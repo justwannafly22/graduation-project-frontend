@@ -45,7 +45,7 @@ export class ChosenClientComponent implements OnInit {
       age:item.age,
       contactNumber:item.contactNumber,
       email:item.email,
-      masterId:item.masterId
+      masterId:item.attendeeId
     });
     });
 

@@ -48,7 +48,6 @@ export class AuthRegisterComponent implements OnInit {
     let request: any = {
       email: this.formGroup.value.email,
       password: this.formGroup.value.password,
-      attendeeId: undefined,
       role: 'CLIENT',
     };
     this.authService.registration(request).subscribe((item) => {
@@ -62,7 +61,7 @@ export class AuthRegisterComponent implements OnInit {
         this.persistanseService.set('email', item.email);
         this.persistanseService.set('fullName', item.fullName);
         this.persistanseService.set('id', item.id);
-        this.persistanseService.set('attendeeId', item.masterId);
+        this.persistanseService.set('attendeeId', item.attendeeId);
         this.persistanseService.set('part','Client');
         if(item){
           this.router.navigate(['/body/clients']);
