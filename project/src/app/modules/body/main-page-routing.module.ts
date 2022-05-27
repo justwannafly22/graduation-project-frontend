@@ -8,6 +8,7 @@ import { ChosenMasterComponent } from '../masters/components/chosen-master/chose
 import { MainMastersComponent } from '../masters/components/main-masters/main-masters.component';
 import { MasterAddComponent } from '../masters/components/master-add/master-add.component';
 import { MainProductComponent } from '../products/components/main-product/main-product.component';
+import { ChosenRepComponent } from '../repairs/components/chosen-rep/chosen-rep.component';
 import { MainRepairsComponent } from '../repairs/components/main-repairs/main-repairs.component';
 import { MainReportingComponent } from '../reporting/components/main-reporting/main-reporting.component';
 
@@ -46,18 +47,18 @@ const routes: Routes = [
       {
         path: 'repairs',
         component: MainRepairsComponent,
-        // children: [
-        //   {
-        //     path: 'add-employee',
-        //     data: { breadcrumb: { alias: 'add-employee' } },
-        //     component: AddEmployeeComponent,
-        //   },
-        //   {
-        //     path: 'account-employee',
-        //     data: { breadcrumb: { alias: 'account-employee' } },
-        //     component: AccountEmployeeComponent,
-        //   },
-        // ],
+        children: [
+          {
+            path: 'chosen-repairs',
+            data: { breadcrumb: { alias: 'chosen-repairs' } },
+            component: ChosenRepComponent,
+          },
+          // {
+          //   path: 'account-employee',
+          //   data: { breadcrumb: { alias: 'account-employee' } },
+          //   component: AccountEmployeeComponent,
+          // },
+        ],
       },
       {
         path: 'masters',

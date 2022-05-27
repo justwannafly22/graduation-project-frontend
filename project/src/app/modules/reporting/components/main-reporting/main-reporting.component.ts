@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import * as Chart from 'chart.js';
+import { RepairsService } from 'src/app/modules/repairs/services/repairs.service';
+import { RepairsResponseInterface } from 'src/app/shared/interfaces/repairs/repairs-response.interface';
 
 @Component({
   selector: 'app-main-reporting',
   templateUrl: './main-reporting.component.html',
   styleUrls: ['./main-reporting.component.css'],
 })
-export class MainReportingComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {
+export class MainReportingComponent implements OnInit , DoCheck{
+  public repairs!:any;
+  constructor(private repairsService: RepairsService) {}
+  ngDoCheck(): void {
     const myChart = new Chart('myChart', {
       type: 'bar',
       data: {
@@ -17,7 +19,7 @@ export class MainReportingComponent implements OnInit {
         datasets: [
           {
             label: 'Reportoings',
-            data: [89, 100, 3, 29, 70],
+            data: [89, this.repairs, 3, 29, 70],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
               'rgba(54, 162, 235, 0.2)',
@@ -50,5 +52,13 @@ export class MainReportingComponent implements OnInit {
         },
       },
     });
+  }
+
+  ngOnInit(): void {
+    this.repairsService.getRepairs().subscribe((item) => {
+      this.repairs = item.length;
+      console.log(this.repairs);
+    });
+    
   }
 }

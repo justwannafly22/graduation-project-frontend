@@ -1,3 +1,4 @@
+<p>{{repairs[0].id}}</p>
 <div class="page">
   <div class="page__left-bar">
     <div class="page__left-bar-header">
@@ -83,5 +84,11 @@
         </div>
     </div>
   </div>
-  <div class="page__right-bar"></div>
+  <div class="page__right-bar">
+    <app-table
+      dataType="repairs"
+      [collection]="repairs"
+      [columns]="columns"
+    ></app-table>
+  </div>
 </div>

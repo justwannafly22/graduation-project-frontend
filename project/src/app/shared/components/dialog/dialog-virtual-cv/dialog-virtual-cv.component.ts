@@ -1,9 +1,11 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {
+  MatDialog,
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { DialogAddTechnick } from '../dialog-add-technic/dialog-add-technic.component';
 
 @Component({
   selector: 'app-dialog-virtual-cv',
@@ -17,7 +19,8 @@ export class DialogVirtualCvComponent {
   constructor(
     public dialogRef: MatDialogRef<DialogVirtualCvComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private formBuilder:FormBuilder
+    private formBuilder:FormBuilder,
+    public dialog: MatDialog
   ) {
     this.user = data.user[0];
     this.initializeForm();
@@ -32,6 +35,13 @@ export class DialogVirtualCvComponent {
   }
   onNoClick(): void {
     this.dialogRef.close();
+  }
+  addTechnic():void{
+    const dialogRef = this.dialog.open(DialogAddTechnick, {
+      width: 'auto',
+      data: { user: 'sdcsdc', data: 'sdcsdc' },
+    });
+    dialogRef.afterClosed().subscribe((result) => {});
   }
   submit():void{
     console.log("dialog",this.formGroup.value);

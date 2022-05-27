@@ -1,5 +1,5 @@
 <div class="page">
-  <div class="page__header"><h1>Оформление заказа</h1></div>
+  <div class="page__header"><h1>Добавление техники</h1></div>
   <div class="page__main">
     <form [formGroup]="formGroup">
       <ul>
@@ -8,16 +8,6 @@
             class="page__form-input"
             formControlName="name"
             spirit="CONTROLS.FullName.nameSecond"
-          ></app-description>
-        </li>
-      </ul>
-
-      <ul>
-        <li>
-          <app-description
-            class="page__form-input"
-            formControlName="location"
-            spirit="CONTROLS.Local.local"
           ></app-description>
         </li>
       </ul>
@@ -30,23 +20,6 @@
           ></app-description>
         </li>
       </ul>
-      <ul>
-        <li>
-          <mat-slide-toggle [checked]="checked" class="page__form-input" formControlName="diagnostic">{{
-            "CONTROLS.Diagnostic.diagnostic" | translate
-          }}</mat-slide-toggle>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <app-multi-select
-          class="page__form-input"
-          formControlName="status"
-          spirit="Status"
-        ></app-multi-select>
-        </li>
-      </ul>
-
       <div class="page__footer">
         <button mat-stroked-button mat-button color="warn" (click)="submit()">
           Sent

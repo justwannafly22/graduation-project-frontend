@@ -28,10 +28,7 @@ export class DialogAddTechnick {
   initializeForm(){
     this.formGroup = this.formBuilder.group({
       name:[''],
-      location:[''],
       description:[''],
-      diagnostic:[''],
-      status:['']
     })
   }
   onNoClick(): void {

@@ -1,0 +1,77 @@
+<div class="page">
+    <div class="page__body">
+      <form [formGroup]="clientsFormGroup" (ngSubmit)="onSub()">
+        <ul>
+          <li>
+            <app-description
+              class="page__form-input"
+              formControlName="id"
+              spirit="CONTROLS.Id.id"
+            ></app-description>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <app-description
+              class="page__form-input"
+              formControlName="name"
+              spirit="Название"
+            ></app-description>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <app-date
+              class="page__form-input"
+              formControlName="date"
+              spirit="Дата"
+            ></app-date>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <app-description
+              class="page__form-input"
+              formControlName="advancedInfo"
+              spirit="Дополнительная информация"
+            ></app-description>
+          </li>
+        </ul>
+        <ul>
+            <li>
+              <app-multi-select
+                class="page__form-input"
+                formControlName="status"
+                spirit="статус"
+                [list] = "status"
+              ></app-multi-select>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <app-description
+                class="page__form-input"
+                formControlName="clientId"
+                spirit="Клиент"
+              ></app-description>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <app-description
+                class="page__form-input"
+                formControlName="masterId"
+                spirit="Мастер"
+              ></app-description>
+            </li>
+          </ul>
+        <div class="page__footer">
+          <button mat-raised-button color="primary" type="submit">Ok</button>
+          <button mat-stroked-button (click)="back()">Back</button>
+          <button mat-stroked-button (click)="rm()">Delete</button>
+          <button mat-stroked-button (click)="edit()">Edit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

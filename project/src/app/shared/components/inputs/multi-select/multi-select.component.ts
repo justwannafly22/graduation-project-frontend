@@ -11,6 +11,7 @@ import {
   FormControl,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
+import { PersistanceService } from 'src/app/shared/services/persistanse.service';
 // import { BasicResponseInterface } from 'src/app/shared/interfaces/basic/basic-response.interface';
 // import { LanguagesResponseInterface } from 'src/app/shared/interfaces/languages/languages-response.interface';
 // import { ProjectResponseInterface } from 'src/app/shared/interfaces/projects/project-response.interface';
@@ -33,6 +34,10 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
   @Input('multiple') multiple: boolean = false;
   @Input('spirit') spirit!: string;
   @Input() list!: any[] | any;
+  public part:string = this.persistanseService.get('part') ;
+  constructor(private persistanseService:PersistanceService){
+
+  }
   //
   allList?: any[]= [{name:"expectation",id:"expectation"},
   {name:"during",id:"during"},

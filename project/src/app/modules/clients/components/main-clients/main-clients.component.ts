@@ -30,6 +30,7 @@ export class MainClientsComponent implements OnInit {
   ngOnInit(): void {
     this.clientService.getClients().subscribe(item=>{
       this.clients = item;
+      console.log( this.clients);
     })
   }
 
