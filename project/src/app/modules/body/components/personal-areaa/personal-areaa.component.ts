@@ -91,15 +91,8 @@ export class PersonalAreaaComponent implements OnInit, DoCheck {
     let name = this.clientsFormGroup.value.name;
     let surname = this.clientsFormGroup.value.surname;
     let age = Number(this.clientsFormGroup.value.age);
-    let val: SecondClientsRequestInterface = {
-      name: name,
-      surname: surname,
-      age: age,
-      contactNumber: this.clientsFormGroup.value.contactNumber,
-      email: this.clientsFormGroup.value.email,
-      masterId: this.clientsFormGroup.value.masterId,
-    };
-    this.clientsService.changeClient(val, this.id).subscribe((item) => {
+    let val:SecondClientsRequestInterface = {name:name,surname:surname,age:age,contactNumber:this.clientsFormGroup.value.contactNumber,email:this.clientsFormGroup.value.email, attendeeId:this.clientsFormGroup.value.masterId};
+    this.clientsService.changeClient(val,this.id).subscribe(item=>{
       this.initializeForm();
     });
   }

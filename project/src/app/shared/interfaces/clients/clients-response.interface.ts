@@ -4,5 +4,5 @@ export interface ClientsResponseInterface{
     age: number,
     contactNumber: string,
     email: string,
-    masterId: string 
+    attendeeId: string 
 }
