@@ -18,14 +18,15 @@ export class RepairsService {
     return this.http.get<RepairsResponseInterface>(url).pipe( untilDestroyed(this),map((response: RepairsResponseInterface) => response));
   }
 
-//   public getRepairs(): Observable<RepairsResponseInterface[]> {
-//     const url = environment.repairsApiUrl;
-//     return this.http
-//       .get<RepairsResponseInterface[]>(url)
-//       .pipe(untilDestroyed(this),map((response: RepairsResponseInterface[]) => {
-//           console.log("service",response);
-//          return  response}));
-//   }
+  // ToDo: from query parameters need to be added.
+  public getRepairs(): Observable<RepairsResponseInterface[]> {
+    const url = environment.repairsApiUrl;
+    return this.http
+      .get<RepairsResponseInterface[]>(url)
+      .pipe(untilDestroyed(this),map((response: RepairsResponseInterface[]) => {
+          console.log("service",response);
+         return  response}));
+  }
 
   public addRepair(data: RepairsRequestInterface): Observable<RepairsResponseInterface> {
     const url = environment.repairsApiUrl + '/cv';
