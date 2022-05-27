@@ -2,5 +2,7 @@ export interface RepairsRequestInterface{
     name: string,
     date: Date,
     advancedInfo: string,
-    statusInfo: string,
+    status: string,
+    masterId: string,
+    clientId: string
 }
