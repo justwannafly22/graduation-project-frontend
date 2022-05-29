@@ -4,6 +4,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
+import { ProductsService } from 'src/app/modules/products/services/product.service';
 
 @Component({
   selector: 'app-add-technic',
@@ -20,7 +21,8 @@ export class DialogAddTechnick {
   constructor(
     public dialogRef: MatDialogRef<DialogAddTechnick>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private formBuilder:FormBuilder
+    private formBuilder:FormBuilder,
+    private productService:ProductsService
   ) {
     this.user = data.user[0];
     this.initializeForm();
@@ -36,6 +38,7 @@ export class DialogAddTechnick {
   }
   submit():void{
     console.log("dialog",this.formGroup.value);
+    this.productService.addProduct( {name:this.formGroup.value.name, description:this.formGroup.value.description}).subscribe();
     
   }
 }

@@ -15,7 +15,15 @@ export class ProductsService {
     const url = `${environment.productApiUrl}/?id=${id}`;
     return this.http.get<ProductResponseInterface>(url).pipe( untilDestroyed(this),map((response: ProductResponseInterface) => response));
   }
-
+  public getProductByClient(id:string):Observable<ProductResponseInterface[]>
+  {
+    const url = environment.productApiUrl;
+    return this.http
+      .get<ProductResponseInterface[]>(url)
+      .pipe(untilDestroyed(this),map((response: ProductResponseInterface[]) => {
+          console.log("service",response);
+         return  response}));
+  }
   public getProducts(): Observable<ProductResponseInterface[]> {
     const url = environment.productApiUrl;
     return this.http
@@ -26,10 +34,13 @@ export class ProductsService {
   }
 
   public addProduct(data:ProductRequestInterface): Observable<ProductResponseInterface> {
-    const url = environment.productApiUrl + '/cv';
+    console.log(data);
+    const url = environment.productApiUrl;
     return this.http
       .post<ProductResponseInterface>(url, data)
-      .pipe(untilDestroyed(this),map((response: ProductResponseInterface) => response));
+      .pipe(untilDestroyed(this),map((response: ProductResponseInterface) =>{
+        console.log(response);
+        return response} ));
   }
 
   public delProduct(id: string): Observable<{}> {

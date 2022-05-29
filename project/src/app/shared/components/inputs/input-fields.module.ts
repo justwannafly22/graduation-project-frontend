@@ -12,13 +12,14 @@ import { TranslateModule } from '@ngx-translate/core';
 import { DateComponent } from './date/date.component';
 import { DescriptionComponent } from './description/description.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MultiSelectComponent } from './multi-select/multi-select.component';
+import { MultiSelectComponent } from './multi-select-status/multi-select.component';
 import { MatSelectModule } from '@angular/material/select';
 import { SizeInputComponent } from './size-input/size-input.component';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MaterialExampleModule } from '../../modules/material.module';
 import { ContactNumberComponent } from './contact-number/contact-number.component';
+import { MultiSelectComponentProduct } from './multi-select/multi-select.component';
 @NgModule({
   declarations: [
     EmailInputComponent,
@@ -28,6 +29,7 @@ import { ContactNumberComponent } from './contact-number/contact-number.componen
     MultiSelectComponent,
     SizeInputComponent,
     ContactNumberComponent,
+    MultiSelectComponentProduct
   ],
   exports: [
     DateComponent,
@@ -38,6 +40,7 @@ import { ContactNumberComponent } from './contact-number/contact-number.componen
     SizeInputComponent,
     MaterialExampleModule,
     ContactNumberComponent,
+    MultiSelectComponentProduct
   ],
   imports: [
     CommonModule,

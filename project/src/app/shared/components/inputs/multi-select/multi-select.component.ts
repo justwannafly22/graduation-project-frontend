@@ -1,6 +1,4 @@
 import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   forwardRef,
   Input,
@@ -11,42 +9,26 @@ import {
   FormControl,
   NG_VALUE_ACCESSOR,
 } from '@angular/forms';
-import { PersistanceService } from 'src/app/shared/services/persistanse.service';
-// import { BasicResponseInterface } from 'src/app/shared/interfaces/basic/basic-response.interface';
-// import { LanguagesResponseInterface } from 'src/app/shared/interfaces/languages/languages-response.interface';
-// import { ProjectResponseInterface } from 'src/app/shared/interfaces/projects/project-response.interface';
-// import { SkillsResponseInterface } from 'src/app/shared/interfaces/skills/skills-response.interface';
+import { ProductResponseInterface } from 'src/app/shared/interfaces/product/product-response.interface';
+
 
 @Component({
-  selector: 'app-multi-select',
+  selector: 'app-multi-select-product',
   templateUrl: './multi-select.component.html',
   styleUrls: ['./multi-select.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => MultiSelectComponent),
+      useExisting: forwardRef(() => MultiSelectComponentProduct),
       multi: true,
     },
   ],
 })
-export class MultiSelectComponent implements OnInit, ControlValueAccessor {
-  @Input('multiple') multiple: boolean = false;
+export class MultiSelectComponentProduct implements OnInit, ControlValueAccessor {
   @Input('spirit') spirit!: string;
   @Input() list!: any[] | any;
-  public part:string = this.persistanseService.get('part') ;
-  constructor(private persistanseService:PersistanceService){
-
-  }
-  //
-  allList?: any[]= [{name:"expectation",id:"expectation"},
-  {name:"during",id:"during"},
-  {name:"ready",id:"ready"}];
-  // @Input() allList?:
-  //   | BasicResponseInterface[]
-  //   | SkillsResponseInterface[]leshka124@mail.ru
-  //   | LanguagesResponseInterface[]3fa85f64-5717-4562-b3fc-2c963f66afa6
-  //   | ProjectResponseInterface[];
+  @Input() allList?:
+    | ProductResponseInterface[];
   control = new FormControl();
   onChange: any | any[];
   onTouch: any;
@@ -66,5 +48,6 @@ export class MultiSelectComponent implements OnInit, ControlValueAccessor {
         this.onChange(data);
       }
     });
+    console.log('+', this.list);
   }
 }
