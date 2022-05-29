@@ -12,6 +12,7 @@ import { PersistanceService } from 'src/app/shared/services/persistanse.service'
 export class MyRepComponent implements OnInit {
   public repairss!: RepairsResponseInterface[];
   public id:string = this.persistanses.get('id');
+  private part:string = this.persistanses.get('part');
   public columns: Columns[] = [
     { headerName: 'Название', dataField: 'name', type: 'text' },
     { headerName: 'Дата', dataField: 'date', type: 'text' },
@@ -25,7 +26,9 @@ export class MyRepComponent implements OnInit {
     console.log("123");
     
     this.repairsService.getRepairByClient(this.id).subscribe((item) => {
-      if(item){
+      if(this.part=='CLIENT'){
+        console.log(item);
+        
       this.repairss = item;
     }
     else{
