@@ -5,5 +5,6 @@ export interface RepairsResponseInterface{
     advancedInfo: string,
     status: string,
     masterId: string,
-    clientId: string
+    clientId: string,
+    productId: string
 }
