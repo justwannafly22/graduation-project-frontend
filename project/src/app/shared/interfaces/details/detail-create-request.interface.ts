@@ -4,5 +4,5 @@ export interface DetailCreateRequestInterface{
     count: number,
     advancedInfo: string,
     repairId: string,
-    productId: string
+    productId: string // Should be always null.
 }
