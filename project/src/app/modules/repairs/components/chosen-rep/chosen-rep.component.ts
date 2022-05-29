@@ -37,13 +37,7 @@ export class ChosenRepComponent implements OnInit {
     this.secondId = this.persistanceService.get('id');
     this.id = this.data.user;
   }
-/*  id: string,
-    name: string,
-    date: string,
-    advancedInfo: string,
-    status: string,
-    masterId: string,
-    clientId: string */
+
   initializeForm():void{
     this.clientsFormGroup = this.clientsFormBuilder.group({
       id:[''],
@@ -57,9 +51,8 @@ export class ChosenRepComponent implements OnInit {
     });
     this.id = this.persistanceService.get('accountId');
     this.repairsService.getRepair(this.id).subscribe(item=>{
-      //console.log("ClientFromBack",item.email);
       this.status = item.status;
-    this.clientsFormGroup.patchValue({
+      this.clientsFormGroup.patchValue({
       id:item.id,
       name:item.name,
       date:item.date,
@@ -76,9 +69,6 @@ export class ChosenRepComponent implements OnInit {
     console.log(this.clientsFormGroup.value);
     
   }
-  rm():void{
-
-  }
   edit(){
     this.id = this.persistanceService.get('accountId');
     console.log('id',this.secondId);
@@ -88,10 +78,10 @@ export class ChosenRepComponent implements OnInit {
       console.log("item",item);
       this.initializeForm();
       this.dialogRef.close();
-      
     });
   }
+  
   back():void{
-    this.router.navigate(['/body/clients'])
+    this.dialogRef.close();
   }
 }
