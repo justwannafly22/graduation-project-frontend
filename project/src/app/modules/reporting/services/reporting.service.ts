@@ -12,12 +12,8 @@ import { RepairsResponseInterface } from "src/app/shared/interfaces/repairs/repa
 @Injectable()
 export class ReportingService {
   constructor(private http: HttpClient) {}
-
-  public getReport(id: string): Observable<RepairsResponseInterface> {
-    const url = `${environment.repairsApiUrl}/?id=${id}`;
-    return this.http.get<RepairsResponseInterface>(url).pipe( untilDestroyed(this),map((response: RepairsResponseInterface) => response));
-  }
-
+  
+  // ToDo: remove.
   public getReports(): Observable<RepairsResponseInterface[]> {
     const url = environment.repairsApiUrl;
     return this.http
@@ -27,21 +23,6 @@ export class ReportingService {
          return  response}));
   }
 
-  public addReports(data: RepairsRequestInterface): Observable<RepairsResponseInterface> {
-    const url = environment.repairsApiUrl + '/cv';
-    return this.http
-      .post<RepairsResponseInterface>(url, data)
-      .pipe(untilDestroyed(this),map((response: RepairsResponseInterface) => response));
-  }
 
-  public delReport(id: string): Observable<{}> {
-    const url = `${environment.repairsApiUrl}/cv`;
-    return this.http.request('delete', url, { body: { id: id } });
-  }
-  public changeReport(data: RepairsRequestInterface): Observable<RepairsResponseInterface> {
-    const url = environment.repairsApiUrl + '/cv';
-    return this.http
-      .put<RepairsResponseInterface>(url, data)
-      .pipe(untilDestroyed(this),map((response: RepairsResponseInterface) => response));
-  }
+
 }
