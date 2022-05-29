@@ -8,27 +8,27 @@
     (closed)="events.push('close!')"
   >
     <mat-selection-list [multiple]="false">
-      <mat-list-option>
+      <mat-list-option *ngIf="part!='CLIENT'">
         <div class="page__list-options" (click)="selectDetails()">
           <mat-icon>arrow_right</mat-icon> Детали
         </div>
       </mat-list-option>
-      <mat-list-option>
+      <mat-list-option *ngIf="part!='CLIENT'">
         <div class="page__list-options" (click)="selectRepairs()">
           <mat-icon>arrow_right</mat-icon> Починки
         </div>
       </mat-list-option>
-      <mat-list-option>
+      <mat-list-option *ngIf="part!='CLIENT'">
         <div class="page__list-options" (click)="selectMasters()">
           <mat-icon>arrow_right</mat-icon> Мастера
         </div>
       </mat-list-option>
-      <mat-list-option>
+      <mat-list-option *ngIf="part!='CLIENT'">
         <div class="page__list-options" (click)="selectClients()">
           <mat-icon>arrow_right</mat-icon> Клиенты
         </div>
       </mat-list-option>
-      <mat-list-option>
+      <mat-list-option *ngIf="part!='CLIENT'">
         <div class="page__list-options" (click)="selectProducts()">
           <mat-icon>arrow_right</mat-icon> Техника
         </div>
@@ -36,6 +36,16 @@
       <mat-list-option>
         <div class="page__list-options" (click)="selectReporting()">
           <mat-icon>arrow_right</mat-icon> Отчетность
+        </div>
+      </mat-list-option>
+      <mat-list-option>
+        <div class="page__list-options" (click)="myRep()">
+          <mat-icon>arrow_right</mat-icon> Мои заказы
+        </div>
+      </mat-list-option>
+      <mat-list-option>
+        <div class="page__list-options" (click)="myProd()">
+          <mat-icon>arrow_right</mat-icon> Мои продукты
         </div>
       </mat-list-option>
     </mat-selection-list>

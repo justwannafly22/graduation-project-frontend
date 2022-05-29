@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PersistanceService } from 'src/app/shared/services/persistanse.service';
 
 @Component({
   selector: 'app-side-bar',
@@ -9,13 +10,13 @@ import { Router } from '@angular/router';
 export class SideBarComponent implements OnInit {
   events: string[] = [];
   opened: boolean | undefined = true;
-
-  constructor(private router: Router) {}
+part:string = this.pers.get('part');
+  constructor(private router: Router,private pers:PersistanceService) {}
   selectDetails(): void {
     this.router.navigate(['body/details']);
   }
   selectRepairs(): void {
-    this.router.navigate(['body/repairs']);
+    this.router.navigate(['body/repairs/']);
   }
   selectMasters(): void {
     this.router.navigate(['body/masters']);
@@ -28,6 +29,12 @@ export class SideBarComponent implements OnInit {
   }
   selectProducts():void{
     this.router.navigate(['body/products']);
+  }
+  myRep():void{
+    this.router.navigate(['body/my-repairs']);
+  }
+  myProd():void{
+    this.router.navigate(['body/my-product']);
   }
 
   ngOnInit(): void {}

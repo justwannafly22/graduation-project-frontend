@@ -11,19 +11,24 @@ import { MainProductComponent } from '../products/components/main-product/main-p
 import { ChosenRepComponent } from '../repairs/components/chosen-rep/chosen-rep.component';
 import { MainRepairsComponent } from '../repairs/components/main-repairs/main-repairs.component';
 import { MainReportingComponent } from '../reporting/components/main-reporting/main-reporting.component';
+import { MyProductComponent } from './components/main-product/main-product.component';
 
 import { MainComponent } from './components/main/main.component';
+import { MyRepComponent } from './components/my-rep/my-rep.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 const routes: Routes = [
   {
     path: '',
     component: MainComponent,
     children: [
-      // {
-      //   path: '',
-      //   redirectTo: 'details',
-      //   pathMatch: 'full',
-      // },
+      {
+        path: 'my-repairs',
+        component: MyRepComponent,
+      },
+      {
+        path: 'my-product',
+        component: MyProductComponent,
+      },
       // {
       //   path: 'news',
       //   component: NewsFeedComponent,
@@ -49,14 +54,12 @@ const routes: Routes = [
         component: MainRepairsComponent,
         children: [
           {
-            path: 'chosen-repairs',
-            data: { breadcrumb: { alias: 'chosen-repairs' } },
+            path: 'choosen-repairs',
             component: ChosenRepComponent,
           },
           // {
-          //   path: 'account-employee',
-          //   data: { breadcrumb: { alias: 'account-employee' } },
-          //   component: AccountEmployeeComponent,
+          //   path: 'my-repairs',
+          //   component: MyRepComponent,
           // },
         ],
       },

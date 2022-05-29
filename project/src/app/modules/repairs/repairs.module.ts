@@ -13,7 +13,7 @@ import { TableModule } from 'src/app/shared/components/table/table.module';
 @NgModule({
   declarations: [
     MainRepairsComponent,
-    ChosenRepComponent
+    ChosenRepComponent,
   ],
   imports: [
     CommonModule,

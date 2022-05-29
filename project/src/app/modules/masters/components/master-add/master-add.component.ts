@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MastersRequestInterface } from 'src/app/shared/interfaces/masters/masters-request.interface';
 import { SecondMastersRequestInterface } from 'src/app/shared/interfaces/masters/second-request.interface';
 import { PersistanceService } from 'src/app/shared/services/persistanse.service';
 import { MastersService } from '../../services/masters.service';
@@ -38,7 +39,8 @@ export class MasterAddComponent implements OnInit {
   }
  
   onSub():void{
-    let finalObj: SecondMastersRequestInterface = this.mastersFormGroup.value;
+    
+    let finalObj: MastersRequestInterface = this.mastersFormGroup.value;
     finalObj.age = Number(finalObj.age)
     this.masterService.addMaster(finalObj).subscribe();
     this.router.navigate(['/body/masters']);

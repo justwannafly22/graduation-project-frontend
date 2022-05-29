@@ -22,9 +22,11 @@ import {  ReactiveFormsModule } from '@angular/forms';
 import { InputFieldsModule } from 'src/app/shared/components/inputs/input-fields.module';
 import { TableModule } from 'src/app/shared/components/table/table.module';
 import { PersonalAreaaComponent } from './components/personal-areaa/personal-areaa.component';
+import { MyRepComponent } from './components/my-rep/my-rep.component';
+import { MyProductComponent } from './components/main-product/main-product.component';
 
 @NgModule({
-  declarations: [MainComponent, SideBarComponent, MainHeaderComponent, PersonalAreaaComponent],
+  declarations: [MainComponent, SideBarComponent, MainHeaderComponent, PersonalAreaaComponent,MyRepComponent,MyProductComponent],
   providers: [ProductsService],
   imports: [
     RouterModule,

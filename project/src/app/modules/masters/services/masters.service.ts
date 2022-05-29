@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 import { map, Observable } from "rxjs";
 import { environment } from "src/app/environments/environment";
+import { MastersRequestInterface } from "src/app/shared/interfaces/masters/masters-request.interface";
 import { MastersResponseInterface } from "src/app/shared/interfaces/masters/masters-response.interface";
 import { SecondMastersRequestInterface } from "src/app/shared/interfaces/masters/second-request.interface";
 
@@ -28,7 +29,7 @@ export class MastersService {
       .pipe(untilDestroyed(this),map((response: MastersResponseInterface[]) =>response ))
   }
 
-  public addMaster(data: SecondMastersRequestInterface): Observable<MastersResponseInterface> {
+  public addMaster(data: MastersRequestInterface): Observable<MastersResponseInterface> {
     const url = environment.mastersApiUrl;
     return this.http
       .post<MastersResponseInterface>(url, data)
