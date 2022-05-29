@@ -1,7 +1,7 @@
 <div class="page">
     <div class="page__body">
       <form [formGroup]="clientsFormGroup" (ngSubmit)="onSub()">
-        <ul>
+        <!-- <ul>
           <li>
             <app-description
               class="page__form-input"
@@ -9,7 +9,7 @@
               spirit="CONTROLS.Id.id"
             ></app-description>
           </li>
-        </ul>
+        </ul> -->
         <ul>
           <li>
             <app-description
@@ -47,7 +47,7 @@
               ></app-multi-select>
             </li>
           </ul>
-          <ul>
+          <!-- <ul>
             <li>
               <app-description
                 class="page__form-input"
@@ -57,6 +57,16 @@
             </li>
           </ul>
           <ul>
+            
+              <li>
+                <app-description
+                  class="page__form-input"
+                  formControlName="productId"
+                  spirit="Продукт"
+                ></app-description>
+              </li>
+            </ul>
+            <ul>
             <li>
               <app-description
                 class="page__form-input"
@@ -64,11 +74,11 @@
                 spirit="Мастер"
               ></app-description>
             </li>
-          </ul>
+          </ul> -->
         <div class="page__footer">
           <button mat-raised-button color="primary" type="submit">Ok</button>
-          <button mat-stroked-button (click)="back()">Back</button>
-          <button mat-stroked-button (click)="rm()">Delete</button>
+          <!-- <button mat-stroked-button (click)="back()">Back</button> -->
+          <!-- <button mat-stroked-button (click)="rm()">Delete</button> -->
           <button mat-stroked-button (click)="edit()">Edit</button>
         </div>
       </form>

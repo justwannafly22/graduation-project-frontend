@@ -84,8 +84,8 @@
         </div>
     </div>
   </div>
-  <div class="page__right-bar">
-    <app-table
+  <div class="page__right-bar" *ngIf="repairs.length != 0">
+    <app-table 
       dataType="repairs"
       [collection]="repairs"
       [columns]="columns"

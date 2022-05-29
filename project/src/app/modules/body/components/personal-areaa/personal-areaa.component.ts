@@ -18,7 +18,16 @@ import { PersistanceService } from 'src/app/shared/services/persistanse.service'
   styleUrls: ['./personal-areaa.component.css'],
 })
 export class PersonalAreaaComponent implements OnInit, DoCheck {
-  public repairs!: RepairsResponseInterface[];
+  public repairs: RepairsResponseInterface[] =[{
+    id: "84493565-8c48-439a-61a7-08da416092fd",
+    name: "",
+    date: "",
+    advancedInfo: "",
+    status: "",
+    masterId: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    clientId: "bb28acab-55f2-43d0-9116-08da415ee53f",
+    productId: "719dc7af-64ee-4349-53ca-08da4160434e"
+}];
   public currentRole = this.persistanceService.get('part');
   public currentDataByApplication: any;
   public displayDialog: boolean = false;
@@ -48,10 +57,10 @@ export class PersonalAreaaComponent implements OnInit, DoCheck {
   }
   ngOnInit(): void {
     this.id = this.persistanceService.get('id');
-    this.repairsService.getRepairsByClient(this.id).subscribe((item) => {
-      this.repairs = item;
-      console.log(this.repairs);
-    });
+    // this.repairsService.getRepairsByClient(this.id).subscribe((item) => {
+    //   this.repairs = item;
+    //   console.log(this.repairs);
+    // });
     this.initializeForm();
     // this.currentDataByApplication = 'qwe';
     // this.initializeTable();

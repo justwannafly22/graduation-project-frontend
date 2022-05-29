@@ -56,8 +56,9 @@ export class TableComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    if(this.collection){
     this.displayedColumns = this.columns;
-    this.table.dataSource = this.collection;
+    this.table.dataSource = this.collection;}
     console.log('table', this.table.dataSource);
     //this.collection.pipe(untilDestroyed(this));
   }

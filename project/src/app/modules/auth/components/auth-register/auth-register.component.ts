@@ -73,7 +73,7 @@ export class AuthRegisterComponent implements OnInit {
           this.persistanseService.set('fullName', item.fullName);
           this.persistanseService.set('id', item.id);
           this.persistanseService.set('attendeeId', item.attendeeId);
-          this.persistanseService.set('part','Client');
+          //this.persistanseService.set('part','Client');
           if(item){
             this.router.navigate(['/body/clients']);
   

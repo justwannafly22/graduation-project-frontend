@@ -49,6 +49,7 @@ export class ChosenRepComponent implements OnInit {
       date:[''],
       advancedInfo:[''],
       status:[''],
+      productId:[''],
       masterId:[''],
       clientId:['']
     });
@@ -62,6 +63,7 @@ export class ChosenRepComponent implements OnInit {
       date:item.date,
       advancedInfo:item.advancedInfo,
       status:item.status,
+      productId:item.productId,
       masterId:item.masterId,
       clientId:item.clientId
     });
@@ -77,7 +79,7 @@ export class ChosenRepComponent implements OnInit {
   }
   edit(){
     
-    let val:RepairsResponseInterface = {id:this.id,name:this.clientsFormGroup.value.name,date:this.clientsFormGroup.value.date,advancedInfo:this.clientsFormGroup.value.advancedInfo,status:this.clientsFormGroup.value.status, masterId:this.clientsFormGroup.value.masterId,clientId:this.clientsFormGroup.value.clientId};
+    let val:RepairsResponseInterface = {id:this.id,productId:this.clientsFormGroup.value.productId,name:this.clientsFormGroup.value.name,date:this.clientsFormGroup.value.date,advancedInfo:this.clientsFormGroup.value.advancedInfo,status:this.clientsFormGroup.value.status, masterId:this.clientsFormGroup.value.masterId,clientId:this.clientsFormGroup.value.clientId};
     this.repairsService.changeRepair(this.clientsFormGroup.value).subscribe(item=>{
       console.log("item",item);
       this.initializeForm();

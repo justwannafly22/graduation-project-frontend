@@ -5,11 +5,12 @@ import { map, Observable } from "rxjs";
 import { environment } from "src/app/environments/environment";
 import { ClientsResponseInterface } from "src/app/shared/interfaces/clients/clients-response.interface";
 import { SecondClientsRequestInterface } from "src/app/shared/interfaces/clients/second-clients-request.interface";
+import { PersistanceService } from "src/app/shared/services/persistanse.service";
 
 @UntilDestroy()
 @Injectable()
 export class ClientsService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private persistanseService:PersistanceService) {}
 
   public getClient(id: string): Observable<ClientsResponseInterface> {
     const url = `${environment.clientsApiUrl}/${id}`;
@@ -46,6 +47,14 @@ export class ClientsService {
     const url = `${environment.clientsApiUrl}/${id}`;
     return this.http
       .put<ClientsResponseInterface>(url, data)
-      .pipe(untilDestroyed(this),map((response: ClientsResponseInterface) => response));
+      .pipe(untilDestroyed(this),map((response: ClientsResponseInterface) => {
+        this.persistanseService.set('age', response.age);
+        this.persistanseService.set('contactNumber', response.contactNumber);
+        this.persistanseService.set('email', response.email);
+        this.persistanseService.set('fullName', response.fullName);
+        this.persistanseService.set('id', response.id);
+        this.persistanseService.set('attendeeId', response.attendeeId);
+        this.persistanseService.set('part','Client');
+        return response}));
   }
 }

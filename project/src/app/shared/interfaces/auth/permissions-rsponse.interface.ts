@@ -1,4 +1,4 @@
 export interface PermResponseInterface{
     attendeeId: string,
-    roles:any | any[]
+    roles: string[]
 }

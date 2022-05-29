@@ -7,11 +7,12 @@ import { LoginRequestInterface } from 'src/app/shared/interfaces/auth/login-requ
 import { LoginResponseIterface } from 'src/app/shared/interfaces/auth/login-response.interface';
 import { PermResponseInterface } from 'src/app/shared/interfaces/auth/permissions-rsponse.interface';
 import { RegisterRequestInterface } from 'src/app/shared/interfaces/auth/register-request.interface';
+import { PersistanceService } from 'src/app/shared/services/persistanse.service';
 
 @UntilDestroy()
 @Injectable()
 export class AuthServices {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private persist:PersistanceService) {}
   public registration(
     data: RegisterRequestInterface
   ): Observable<LoginResponseIterface> {
@@ -34,6 +35,11 @@ export class AuthServices {
 
     return this.http
       .post<PermResponseInterface>(url, request)
-      .pipe(map((response: PermResponseInterface) => response));
+      .pipe(map((response: PermResponseInterface) => {
+        console.log("part",response);
+        let role = response.roles.pop();
+        console.log("part",role);
+        this.persist.set('part',role)
+        return response}));
   }
 }
