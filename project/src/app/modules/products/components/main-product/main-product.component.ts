@@ -14,7 +14,6 @@ export class MainProductComponent implements OnInit {
 
   public columns: Columns[] = [
     { headerName: 'Name', dataField: 'name',type: "text"},
-    { headerName: 'Price', dataField: 'price',type: "number"},
     { headerName: 'Description', dataField: 'description',type: "text" },
   ];
   ngOnInit(): void {
