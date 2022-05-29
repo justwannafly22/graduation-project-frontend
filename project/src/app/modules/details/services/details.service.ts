@@ -18,12 +18,19 @@ export class DetailsService {
   }
 
   public getDetails(repairId: string): Observable<DetailResponseInterface[]> {
-    const url = `${environment.replacedPartApiUrl}/?requiredId=${repairId}&requiredIdType=RepairId`;
+    const url = `${environment.replacedPartApiUrl}/type/RepairId?requiredId=${repairId}`;
     return this.http
       .get<DetailResponseInterface[]>(url)
       .pipe(untilDestroyed(this),map((response: DetailResponseInterface[]) => {
-          console.log("service",response);
-         return  response}));
+        return  response}));
+  }
+
+  public getAllDetails(): Observable<DetailResponseInterface[]> {
+    const url = `${environment.replacedPartApiUrl}/type/None`;
+    return this.http
+      .get<DetailResponseInterface[]>(url)
+      .pipe(untilDestroyed(this),map((response: DetailResponseInterface[]) => {
+        return  response}));
   }
 
   public addDetail(data: DetailCreateRequestInterface): Observable<DetailResponseInterface> {

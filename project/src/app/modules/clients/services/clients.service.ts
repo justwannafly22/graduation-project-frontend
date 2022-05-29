@@ -5,9 +5,7 @@ import { map, Observable } from "rxjs";
 import { environment } from "src/app/environments/environment";
 import { ClientsResponseInterface } from "src/app/shared/interfaces/clients/clients-response.interface";
 import { SecondClientsRequestInterface } from "src/app/shared/interfaces/clients/second-clients-request.interface";
-import { RepairsRequestInterface } from "src/app/shared/interfaces/repairs/repairs-request.interface";
 import { PersistanceService } from "src/app/shared/services/persistanse.service";
-import { RepairsModule } from "../../repairs/repairs.module";
 import { RepairsService } from "../../repairs/services/repairs.service";
 
 @UntilDestroy()
@@ -30,8 +28,7 @@ export class ClientsService {
     return this.http
       .get<ClientsResponseInterface[]>(url)
       .pipe(untilDestroyed(this),map((response: ClientsResponseInterface[]) => {
-          console.log("service",response);
-         return  response}));
+        return  response}));
   }
 
   public addClient(data: SecondClientsRequestInterface): Observable<ClientsResponseInterface> {
@@ -58,7 +55,6 @@ export class ClientsService {
         this.persistanseService.set('fullName', response.fullName);
         this.persistanseService.set('id', response.id);
         this.persistanseService.set('attendeeId', response.attendeeId);
-        this.persistanseService.set('part','Client');
         return response}));
   }
 }

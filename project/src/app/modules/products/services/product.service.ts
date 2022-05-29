@@ -26,7 +26,6 @@ export class ProductsService {
     return this.http.get<ProductResponseInterface[]>(url).pipe(
       untilDestroyed(this),
       map((response: ProductResponseInterface[]) => {
-        console.log('service', response);
         return response;
       })
     );
@@ -37,7 +36,6 @@ export class ProductsService {
     return this.http.get<ProductResponseInterface[]>(url).pipe(
       untilDestroyed(this),
       map((response: ProductResponseInterface[]) => {
-        console.log('service', response);
         return response;
       })
     );
