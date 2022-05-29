@@ -48,7 +48,7 @@ export class PersonalAreaaComponent implements OnInit, DoCheck {
   }
   ngOnInit(): void {
     this.id = this.persistanceService.get('id');
-    this.repairsService.getRepairByClient(this.id).subscribe((item) => {
+    this.repairsService.getRepairsByClient(this.id).subscribe((item) => {
       this.repairs = item;
       console.log(this.repairs);
     });
@@ -58,7 +58,7 @@ export class PersonalAreaaComponent implements OnInit, DoCheck {
   }
   initializeTable(): void {
     let id = this.persistanceService.get('id');
-    this.repairsService.getRepairByClient(id).subscribe((item) => {
+    this.repairsService.getRepairsByClient(id).subscribe((item) => {
       this.repairs = item;
     });
   }

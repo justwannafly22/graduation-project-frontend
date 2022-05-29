@@ -20,14 +20,16 @@ export class RepairsService {
       map((response: RepairsResponseInterface) => response)
     );
   }
-  public getRepairByClient(id: string): Observable<RepairsResponseInterface[]> {
+
+  public getRepairsByClient(id: string): Observable<RepairsResponseInterface[]> {
     const url = `${environment.repairsApiUrl}?clientId=${id}`;
     return this.http.get<RepairsResponseInterface[]>(url).pipe(
       untilDestroyed(this),
       map((response: RepairsResponseInterface[]) => response)
     );
   }
-  public getRepairByMaster(id: string): Observable<RepairsResponseInterface> {
+
+  public getRepairsByMaster(id: string): Observable<RepairsResponseInterface> {
     const url = `${environment.repairsApiUrl}?masterId=${id}`;
     return this.http.get<RepairsResponseInterface>(url).pipe(
       untilDestroyed(this),
@@ -58,11 +60,11 @@ export class RepairsService {
       })
     );
   }
+
   public changeRepair(data: RepairsResponseInterface): Observable<RepairsResponseInterface> {
     const url = environment.repairsApiUrl;
     return this.http
       .put<RepairsResponseInterface>(url, data)
       .pipe(untilDestroyed(this),map((response: RepairsResponseInterface) => response));
   }
-  
 }

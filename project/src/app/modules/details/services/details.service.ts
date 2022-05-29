@@ -3,43 +3,45 @@ import { Injectable } from "@angular/core";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 import { map, Observable } from "rxjs";
 import { environment } from "src/app/environments/environment";
-import { ProductRequestInterface } from "src/app/shared/interfaces/product/product-request.interfase";
-import { ProductResponseInterface } from "src/app/shared/interfaces/product/product-response.interface";
+import { DetailCreateRequestInterface } from "src/app/shared/interfaces/details/detail-create-request.interface";
+import { DetailResponseInterface } from "src/app/shared/interfaces/details/detail-response-model.interface";
+import { DetailUpdateRequestInterface } from "src/app/shared/interfaces/details/detail-update-request.interface";
 
 @UntilDestroy()
 @Injectable()
 export class DetailsService {
   constructor(private http: HttpClient) {}
 
-  public getProduct(id: string): Observable<ProductResponseInterface> {
+  public getDetail(id: string): Observable<DetailResponseInterface> {
     const url = `${environment.replacedPartApiUrl}/?id=${id}`;
-    return this.http.get<ProductResponseInterface>(url).pipe( untilDestroyed(this),map((response: ProductResponseInterface) => response));
+    return this.http.get<DetailResponseInterface>(url).pipe( untilDestroyed(this),map((response: DetailResponseInterface) => response));
   }
 
-  public getProducts(): Observable<ProductResponseInterface[]> {
-    const url = environment.replacedPartApiUrl;
+  public getDetails(repairId: string): Observable<DetailResponseInterface[]> {
+    const url = `${environment.replacedPartApiUrl}/?requiredId=${repairId}&requiredIdType=RepairId`;
     return this.http
-      .get<ProductResponseInterface[]>(url)
-      .pipe(untilDestroyed(this),map((response: ProductResponseInterface[]) => {
+      .get<DetailResponseInterface[]>(url)
+      .pipe(untilDestroyed(this),map((response: DetailResponseInterface[]) => {
           console.log("service",response);
          return  response}));
   }
 
-  public addDetail(data: ProductRequestInterface): Observable<ProductResponseInterface> {
+  public addDetail(data: DetailCreateRequestInterface): Observable<DetailResponseInterface> {
     const url = environment.replacedPartApiUrl + '/cv';
     return this.http
-      .post<ProductResponseInterface>(url, data)
-      .pipe(untilDestroyed(this),map((response: ProductResponseInterface) => response));
+      .post<DetailResponseInterface>(url, data)
+      .pipe(untilDestroyed(this),map((response: DetailResponseInterface) => response));
   }
 
   public delDetail(id: string): Observable<{}> {
     const url = `${environment.replacedPartApiUrl}/cv`;
     return this.http.request('delete', url, { body: { id: id } });
   }
-  public changeDetail(data: ProductRequestInterface): Observable<ProductResponseInterface> {
+
+  public changeDetail(data: DetailUpdateRequestInterface): Observable<DetailResponseInterface> {
     const url = environment.replacedPartApiUrl + '/cv';
     return this.http
-      .put<ProductResponseInterface>(url, data)
-      .pipe(untilDestroyed(this),map((response: ProductResponseInterface) => response));
+      .put<DetailResponseInterface>(url, data)
+      .pipe(untilDestroyed(this),map((response: DetailResponseInterface) => response));
   }
 }
