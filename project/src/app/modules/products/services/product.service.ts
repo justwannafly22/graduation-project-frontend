@@ -15,15 +15,17 @@ export class ProductsService {
     const url = `${environment.productApiUrl}/?id=${id}`;
     return this.http.get<ProductResponseInterface>(url).pipe( untilDestroyed(this),map((response: ProductResponseInterface) => response));
   }
-  public getProductByClient(id:string):Observable<ProductResponseInterface[]>
+
+  public getProductByClient(clientId:string):Observable<ProductResponseInterface[]>
   {
-    const url = environment.productApiUrl;
+    const url = `${environment.productApiUrl}/${clientId}`;
     return this.http
-      .get<ProductResponseInterface[]>(url)
+      .post<ProductResponseInterface[]>(url, null)
       .pipe(untilDestroyed(this),map((response: ProductResponseInterface[]) => {
           console.log("service",response);
          return  response}));
   }
+
   public getProducts(): Observable<ProductResponseInterface[]> {
     const url = environment.productApiUrl;
     return this.http
@@ -44,11 +46,12 @@ export class ProductsService {
   }
 
   public delProduct(id: string): Observable<{}> {
-    const url = `${environment.productApiUrl}/cv`;
+    const url = `${environment.productApiUrl}/${id}`;
     return this.http.request('delete', url, { body: { id: id } });
   }
-  public changeProduct(data: ProductRequestInterface): Observable<ProductResponseInterface> {
-    const url = environment.productApiUrl + '/cv';
+
+  public changeProduct(id: string, data: ProductRequestInterface): Observable<ProductResponseInterface> {
+    const url = `${environment.productApiUrl}/${id}`;
     return this.http
       .put<ProductResponseInterface>(url, data)
       .pipe(untilDestroyed(this),map((response: ProductResponseInterface) => response));
