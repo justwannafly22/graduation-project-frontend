@@ -5,12 +5,15 @@ import { map, Observable } from "rxjs";
 import { environment } from "src/app/environments/environment";
 import { ClientsResponseInterface } from "src/app/shared/interfaces/clients/clients-response.interface";
 import { SecondClientsRequestInterface } from "src/app/shared/interfaces/clients/second-clients-request.interface";
+import { RepairsRequestInterface } from "src/app/shared/interfaces/repairs/repairs-request.interface";
 import { PersistanceService } from "src/app/shared/services/persistanse.service";
+import { RepairsModule } from "../../repairs/repairs.module";
+import { RepairsService } from "../../repairs/services/repairs.service";
 
 @UntilDestroy()
 @Injectable()
 export class ClientsService {
-  constructor(private http: HttpClient, private persistanseService:PersistanceService) {}
+  constructor(private http: HttpClient, private persistanseService:PersistanceService, private repServ:RepairsService) {}
 
   public getClient(id: string): Observable<ClientsResponseInterface> {
     const url = `${environment.clientsApiUrl}/${id}`;
@@ -35,7 +38,8 @@ export class ClientsService {
     const url = environment.clientsApiUrl;
     return this.http
       .post<ClientsResponseInterface>(url, data)
-      .pipe(untilDestroyed(this),map((response: ClientsResponseInterface) => response));
+      .pipe(untilDestroyed(this),map((response: ClientsResponseInterface) => {
+        return response}));
   }
 
   public delClient(id: string): Observable<{}> {

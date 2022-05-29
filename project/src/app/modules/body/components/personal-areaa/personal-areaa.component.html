@@ -1,4 +1,4 @@
-<p>{{repairs[0].id}}</p>
+<!-- <p>{{repairs[0].id}}</p> -->
 <div class="page">
   <div class="page__left-bar">
     <div class="page__left-bar-header">
@@ -72,23 +72,23 @@
           >
             {{ "BUTTONS.put" | translate }}
           </button>
-          <button *ngIf="currentRole=='Client'" mat-stroked-button mat-button color="warn"  (click)="addTechnic()">
+          <button *ngIf="currentRole=='CLIENT'" mat-stroked-button mat-button color="warn"  (click)="addTechnic()">
             Добавить технику
           </button>
-          <button *ngIf="currentRole=='Client'" mat-stroked-button mat-button color="warn"  (click)="appClient()">
+          <button *ngIf="currentRole=='CLIENT'" mat-stroked-button mat-button color="warn"  (click)="appClient()">
             {{ "BUTTONS.createApplication" | translate }}
           </button>
-          <button *ngIf="currentRole=='Master'" mat-stroked-button mat-button color="warn"  (click)="appMaster()">
+          <button *ngIf="currentRole=='MASTER'" mat-stroked-button mat-button color="warn"  (click)="appMaster()">
           {{"BUTTONS.openApplication" | translate}}
           </button>
         </div>
     </div>
   </div>
   <div class="page__right-bar" *ngIf="repairs.length != 0">
-    <app-table 
+    <!-- <app-table 
       dataType="repairs"
       [collection]="repairs"
       [columns]="columns"
-    ></app-table>
+    ></app-table> -->
   </div>
 </div>

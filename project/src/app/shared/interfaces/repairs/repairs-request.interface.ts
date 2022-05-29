@@ -1,6 +1,6 @@
 export interface RepairsRequestInterface{
     name: string,
-    date: Date,
+    date: string,
     advancedInfo: string,
     status: string,
     masterId?: string,

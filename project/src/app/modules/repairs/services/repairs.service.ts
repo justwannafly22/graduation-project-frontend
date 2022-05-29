@@ -21,7 +21,7 @@ export class RepairsService {
     );
   }
 
-  public getRepairsByClient(id: string): Observable<RepairsResponseInterface[]> {
+  public getRepairByClient(id: string): Observable<RepairsResponseInterface[]> {
     const url = `${environment.repairsApiUrl}?clientId=${id}`;
     return this.http.get<RepairsResponseInterface[]>(url).pipe(
       untilDestroyed(this),

@@ -38,6 +38,8 @@ export class DialogVirtualCvComponent {
     this.initializeForm();
     this.productService.getProductByClient(this.id).subscribe((item) => {
       this.listProducts = item;
+      console.log("this.listProducts",this.listProducts);
+      
     });
   }
   /* "name": "string",

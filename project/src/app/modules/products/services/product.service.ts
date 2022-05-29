@@ -1,10 +1,10 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
-import { map, Observable } from "rxjs";
-import { environment } from "src/app/environments/environment";
-import { ProductRequestInterface } from "src/app/shared/interfaces/product/product-request.interfase";
-import { ProductResponseInterface } from "src/app/shared/interfaces/product/product-response.interface";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { map, Observable } from 'rxjs';
+import { environment } from 'src/app/environments/environment';
+import { ProductRequestInterface } from 'src/app/shared/interfaces/product/product-request.interfase';
+import { ProductResponseInterface } from 'src/app/shared/interfaces/product/product-response.interface';
 
 @UntilDestroy()
 @Injectable()
@@ -13,36 +13,48 @@ export class ProductsService {
 
   public getProduct(id: string): Observable<ProductResponseInterface> {
     const url = `${environment.productApiUrl}/?id=${id}`;
-    return this.http.get<ProductResponseInterface>(url).pipe( untilDestroyed(this),map((response: ProductResponseInterface) => response));
+    return this.http.get<ProductResponseInterface>(url).pipe(
+      untilDestroyed(this),
+      map((response: ProductResponseInterface) => response)
+    );
   }
 
-  public getProductByClient(clientId:string):Observable<ProductResponseInterface[]>
-  {
-    const url = `${environment.productApiUrl}/${clientId}`;
-    return this.http
-      .post<ProductResponseInterface[]>(url, null)
-      .pipe(untilDestroyed(this),map((response: ProductResponseInterface[]) => {
-          console.log("service",response);
-         return  response}));
+  public getProductByClient(
+    id: string
+  ): Observable<ProductResponseInterface[]> {
+    const url = environment.productApiUrl;
+    return this.http.get<ProductResponseInterface[]>(url).pipe(
+      untilDestroyed(this),
+      map((response: ProductResponseInterface[]) => {
+        console.log('service', response);
+        return response;
+      })
+    );
   }
 
   public getProducts(): Observable<ProductResponseInterface[]> {
     const url = environment.productApiUrl;
-    return this.http
-      .get<ProductResponseInterface[]>(url)
-      .pipe(untilDestroyed(this),map((response: ProductResponseInterface[]) => {
-          console.log("service",response);
-         return  response}));
+    return this.http.get<ProductResponseInterface[]>(url).pipe(
+      untilDestroyed(this),
+      map((response: ProductResponseInterface[]) => {
+        console.log('service', response);
+        return response;
+      })
+    );
   }
 
-  public addProduct(data:ProductRequestInterface): Observable<ProductResponseInterface> {
+  public addProduct(
+    data: ProductRequestInterface
+  ): Observable<ProductResponseInterface> {
     console.log(data);
     const url = environment.productApiUrl;
-    return this.http
-      .post<ProductResponseInterface>(url, data)
-      .pipe(untilDestroyed(this),map((response: ProductResponseInterface) =>{
+    return this.http.post<ProductResponseInterface>(url, data).pipe(
+      untilDestroyed(this),
+      map((response: ProductResponseInterface) => {
         console.log(response);
-        return response} ));
+        return response;
+      })
+    );
   }
 
   public delProduct(id: string): Observable<{}> {
@@ -50,10 +62,14 @@ export class ProductsService {
     return this.http.request('delete', url, { body: { id: id } });
   }
 
-  public changeProduct(id: string, data: ProductRequestInterface): Observable<ProductResponseInterface> {
+  public changeProduct(
+    id: string,
+    data: ProductRequestInterface
+  ): Observable<ProductResponseInterface> {
     const url = `${environment.productApiUrl}/${id}`;
-    return this.http
-      .put<ProductResponseInterface>(url, data)
-      .pipe(untilDestroyed(this),map((response: ProductResponseInterface) => response));
+    return this.http.put<ProductResponseInterface>(url, data).pipe(
+      untilDestroyed(this),
+      map((response: ProductResponseInterface) => response)
+    );
   }
 }
