@@ -33,17 +33,17 @@
           <mat-icon>arrow_right</mat-icon> Техника
         </div>
       </mat-list-option>
-      <mat-list-option>
+      <mat-list-option *ngIf="part!='CLIENT'">
         <div class="page__list-options" (click)="selectReporting()">
           <mat-icon>arrow_right</mat-icon> Отчетность
         </div>
       </mat-list-option>
-      <mat-list-option>
+      <mat-list-option *ngIf="part!='ADMIN'">
         <div class="page__list-options" (click)="myRep()">
           <mat-icon>arrow_right</mat-icon> Мои заказы
         </div>
       </mat-list-option>
-      <mat-list-option>
+      <mat-list-option *ngIf="part!='ADMIN'">
         <div class="page__list-options" (click)="myProd()">
           <mat-icon>arrow_right</mat-icon> Мои продукты
         </div>
