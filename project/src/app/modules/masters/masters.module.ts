@@ -24,7 +24,7 @@ import { AuthModule } from '../auth/auth.module';
     RouterModule,
     ReactiveFormsModule,
     InputFieldsModule,
-    AuthModule
+    //AuthModule
 
   ],
   providers:[MastersService],

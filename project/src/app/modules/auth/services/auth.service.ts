@@ -10,7 +10,9 @@ import { RegisterRequestInterface } from 'src/app/shared/interfaces/auth/registe
 import { PersistanceService } from 'src/app/shared/services/persistanse.service';
 
 @UntilDestroy()
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class AuthServices {
   constructor(private http: HttpClient, private persist:PersistanceService) {}
   public registration(
