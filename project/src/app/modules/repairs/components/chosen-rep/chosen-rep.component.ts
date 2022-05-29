@@ -80,11 +80,11 @@ export class ChosenRepComponent implements OnInit {
 
   }
   edit(){
-    //let id  = this.persServ.get('id');
+    this.id = this.persistanceService.get('accountId');
     console.log('id',this.secondId);
   
     let val:RepairsResponseInterface = {id:this.id,productId:this.clientsFormGroup.value,name:this.clientsFormGroup.value.name,date:this.clientsFormGroup.value.date,advancedInfo:this.clientsFormGroup.value.advancedInfo,status:this.clientsFormGroup.value.status, masterId:this.secondId,clientId:this.clientsFormGroup.value.clientId};
-    this.repairsService.changeRepair(this.clientsFormGroup.value).subscribe(item=>{
+    this.repairsService.changeRepair(val).subscribe(item=>{
       console.log("item",item);
       this.initializeForm();
       this.dialogRef.close();

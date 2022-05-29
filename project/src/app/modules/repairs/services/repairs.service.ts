@@ -59,6 +59,9 @@ export class RepairsService {
 
   public changeRepair(data: RepairsResponseInterface): Observable<RepairsResponseInterface> {
     const url = environment.repairsApiUrl;
+  
+    console.log("serv",data);
+    
     return this.http
       .put<RepairsResponseInterface>(url, data)
       .pipe(untilDestroyed(this),map((response: RepairsResponseInterface) => response));
