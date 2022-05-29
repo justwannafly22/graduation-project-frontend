@@ -36,10 +36,8 @@ export class AuthServices {
     return this.http
       .post<PermResponseInterface>(url, request)
       .pipe(map((response: PermResponseInterface) => {
-        console.log("part",response);
-        let role = response.roles.pop();
-        console.log("part",role);
-        this.persist.set('part',role)
+        let role = response.roles[0];
+        this.persist.set('part', role);
         return response}));
   }
 }

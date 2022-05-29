@@ -1,6 +1,8 @@
 export interface MastersResponseInterface{
-    id:string,
+    id: string,
     fullName: string,
     age: number,
-    contactNumber: string
+    contactNumber: string,
+    email: string,
+    attendeeId: string
 }
