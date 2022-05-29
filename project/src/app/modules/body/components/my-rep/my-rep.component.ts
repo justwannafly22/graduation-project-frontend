@@ -25,8 +25,14 @@ export class MyRepComponent implements OnInit {
     console.log("123");
     
     this.repairsService.getRepairByClient(this.id).subscribe((item) => {
+      if(item){
       this.repairss = item;
-      console.log("my-rep",this.repairss);
+    }
+    else{
+      this.repairsService.getRepairsByMaster(this.id).subscribe((item)=>{
+      this.repairss = item})
+    }
+      
     });
   }
 

@@ -78,8 +78,8 @@ export class ChosenRepComponent implements OnInit {
 
   }
   edit(){
-    
-    let val:RepairsResponseInterface = {id:this.id,productId:this.clientsFormGroup.value.productId,name:this.clientsFormGroup.value.name,date:this.clientsFormGroup.value.date,advancedInfo:this.clientsFormGroup.value.advancedInfo,status:this.clientsFormGroup.value.status, masterId:this.clientsFormGroup.value.masterId,clientId:this.clientsFormGroup.value.clientId};
+    let id  = this.persServ.get('id')
+    let val:RepairsResponseInterface = {id:this.id,productId:this.clientsFormGroup.value,name:this.clientsFormGroup.value.name,date:this.clientsFormGroup.value.date,advancedInfo:this.clientsFormGroup.value.advancedInfo,status:this.clientsFormGroup.value.status, masterId:id,clientId:this.clientsFormGroup.value.clientId};
     this.repairsService.changeRepair(this.clientsFormGroup.value).subscribe(item=>{
       console.log("item",item);
       this.initializeForm();

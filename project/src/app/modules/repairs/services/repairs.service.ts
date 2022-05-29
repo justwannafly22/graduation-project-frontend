@@ -27,11 +27,11 @@ export class RepairsService {
     );
   }
 
-  public getRepairsByMaster(id: string): Observable<RepairsResponseInterface> {
+  public getRepairsByMaster(id: string): Observable<RepairsResponseInterface[]> {
     const url = `${environment.repairsApiUrl}?masterId=${id}`;
-    return this.http.get<RepairsResponseInterface>(url).pipe(
+    return this.http.get<RepairsResponseInterface[]>(url).pipe(
       untilDestroyed(this),
-      map((response: RepairsResponseInterface) => response)
+      map((response: RepairsResponseInterface[]) => response)
     );
   }
 
