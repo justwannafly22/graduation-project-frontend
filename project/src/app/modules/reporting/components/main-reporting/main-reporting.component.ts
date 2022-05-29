@@ -16,7 +16,7 @@ import { RepairsResponseInterface } from 'src/app/shared/interfaces/repairs/repa
   templateUrl: './main-reporting.component.html',
   styleUrls: ['./main-reporting.component.css'],
 })
-export class MainReportingComponent implements OnInit , DoCheck{
+export class MainReportingComponent implements OnInit{
   public repairs!: RepairsResponseInterface[];
   public details!: DetailResponseInterface[];
   public masters!: MastersResponseInterface[];
@@ -25,77 +25,57 @@ export class MainReportingComponent implements OnInit , DoCheck{
 
   constructor(private detailsService: DetailsService, private repairsService: RepairsService,
     private mastersService: MastersService, private cliensService: ClientsService, private productsService: ProductsService) {}
-  ngDoCheck(): void {
-    const myChart = new Chart('myChart', {
-      type: 'bar',
-      data: {
-        labels: ['Детали ', 'Ремонты', 'Мастера', 'Клиенты', 'Техника'],
-        datasets: [
-          {
-            label: 'Reportoings',
-            data: [89, this.repairs.length, 3, 29, 70],
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)',
-            ],
-            borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)',
-              'rgba(255, 159, 64, 1)',
-            ],
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true,
-              },
-            },
-          ],
-        },
-      },
-    });
-  }
 
   ngOnInit(): void {
-    this.repairsService.getRepairs().subscribe((item) => {
-      this.repairs = item;
-      console.log(this.repairs);
-    });
-
-    for (let i = 0; i < this.repairs.length; i++){
-      let repairId = this.repairs[i].id;
-      this.detailsService.getDetails(repairId).subscribe((item) => {
-        this.details.concat(item);
-        console.log(this.details);
-        console.log(item);
+    this.detailsService.getAllDetails().subscribe((details) => {
+      this.repairsService.getRepairs().subscribe((repairs) => {
+        this.cliensService.getClients().subscribe((clients) => {
+          this.mastersService.getMasters().subscribe((masters) => {
+            this.productsService.getProducts().subscribe((products) => {
+                const myChart = new Chart('myChart', {
+                  type: 'bar',
+                  data: {
+                    labels: ['Детали ', 'Ремонты', 'Мастера', 'Клиенты', 'Техника'],
+                    datasets: [
+                      {
+                        label: 'Количество',
+                        data: [details.length, repairs.length, masters.length, clients.length, products.length],
+                        backgroundColor: [
+                          'rgba(255, 99, 132, 0.2)',
+                          'rgba(54, 162, 235, 0.2)',
+                          'rgba(255, 206, 86, 0.2)',
+                          'rgba(75, 192, 192, 0.2)',
+                          'rgba(153, 102, 255, 0.2)',
+                          'rgba(255, 159, 64, 0.2)',
+                        ],
+                        borderColor: [
+                          'rgba(255, 99, 132, 1)',
+                          'rgba(54, 162, 235, 1)',
+                          'rgba(255, 206, 86, 1)',
+                          'rgba(75, 192, 192, 1)',
+                          'rgba(153, 102, 255, 1)',
+                          'rgba(255, 159, 64, 1)',
+                        ],
+                        borderWidth: 1,
+                      },
+                    ],
+                  },
+                  options: {
+                    scales: {
+                      yAxes: [
+                        {
+                          ticks: {
+                            beginAtZero: true,
+                          },
+                        },
+                      ],
+                    },
+                  },
+                });
+            })
+          })
+        })
       });
-    }
-
-    this.mastersService.getMasters().subscribe((item) => {
-      this.masters = item;
-      console.log(this.masters);
-    });
-    
-    this.cliensService.getClients().subscribe((item) => {
-      this.clients = item;
-      console.log(this.clients);
-    });
-    
-    this.productsService.getProducts().subscribe((item) => {
-      this.products = item;
-      console.log(this.products);
-    });
+    })
   }
 }

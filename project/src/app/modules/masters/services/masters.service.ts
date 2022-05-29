@@ -43,7 +43,6 @@ export class MastersService {
   
   public changeMaster(data: SecondMastersRequestInterface,id:string): Observable<MastersResponseInterface> {
     const url = `${environment.mastersApiUrl}/${id}`;
-    console.log("с",data,id);
     
     return this.http
       .put<MastersResponseInterface>(url, data)
