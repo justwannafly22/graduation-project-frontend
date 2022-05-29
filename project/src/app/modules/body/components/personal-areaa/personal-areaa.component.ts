@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { ClientsService } from 'src/app/modules/clients/services/clients.service';
+import { MastersService } from 'src/app/modules/masters/services/masters.service';
 import { RepairsService } from 'src/app/modules/repairs/services/repairs.service';
 import { DialogAddTechnick } from 'src/app/shared/components/dialog/dialog-add-technic/dialog-add-technic.component';
 import { DialogForMaster } from 'src/app/shared/components/dialog/dialog-virtual-cv-for-master/dialog-master.component';
@@ -35,6 +36,7 @@ export class PersonalAreaaComponent implements OnInit, DoCheck {
   ];
   constructor(
     private clientsService: ClientsService,
+    private mstersService:MastersService,
     private clientsFormBuilder: FormBuilder,
     private persistanceService: PersistanceService,
     public dialog: MatDialog,
@@ -89,6 +91,7 @@ export class PersonalAreaaComponent implements OnInit, DoCheck {
     });
   }
   edit() {
+    if(this.currentRole=='CLIENT'){
     let name = this.clientsFormGroup.value.name;
     let surname = this.clientsFormGroup.value.surname;
     let age = Number(this.clientsFormGroup.value.age);
@@ -96,6 +99,16 @@ export class PersonalAreaaComponent implements OnInit, DoCheck {
     this.clientsService.changeClient(val,this.id).subscribe(item=>{
       this.initializeForm();
     });
+    }
+    {
+      let name = this.clientsFormGroup.value.name;
+      let surname = this.clientsFormGroup.value.surname;
+      let age = Number(this.clientsFormGroup.value.age);
+      let val:SecondClientsRequestInterface = {name:name,surname:surname,age:age,contactNumber:this.clientsFormGroup.value.contactNumber,email:this.clientsFormGroup.value.email, attendeeId:this.clientsFormGroup.value.masterId};
+      this.mstersService.changeMaster(val,this.id).subscribe(item=>{
+        this.initializeForm();
+      });
+    }
   }
   appClient(): void {
     const dialogRef = this.dialog.open(DialogVirtualCvComponent, {

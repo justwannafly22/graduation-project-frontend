@@ -41,9 +41,8 @@ export class MastersService {
     return this.http.delete(url);
   }
   
-  public changeMaster(data: SecondMastersRequestInterface,id:string): Observable<MastersResponseInterface> {
+  public changeMaster(data: MastersRequestInterface,id:string): Observable<MastersResponseInterface> {
     const url = `${environment.mastersApiUrl}/${id}`;
-    
     return this.http
       .put<MastersResponseInterface>(url, data)
       .pipe(untilDestroyed(this),map((response: MastersResponseInterface) => response));

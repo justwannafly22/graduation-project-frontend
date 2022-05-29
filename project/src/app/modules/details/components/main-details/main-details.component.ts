@@ -23,11 +23,11 @@ export class MainDetailsComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
-  //  this.detailsService.getDetails().subscribe(item=>{
-  //    console.log("kfg",item);
-  //    this.details = item;
-  //   }
-  //    )
+   this.detailsService.getAllDetails().subscribe(item=>{
+     console.log("kfg",item);
+     this.details = item;
+    }
+     )
   }
 
    

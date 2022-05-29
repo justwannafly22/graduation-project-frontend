@@ -4,5 +4,5 @@ export interface MastersRequestInterface{
     age: number,
     contactNumber: string,
     email: string,
-    attendeeId: string
+    attendeeId?: string
 }

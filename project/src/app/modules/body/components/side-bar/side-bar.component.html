@@ -18,17 +18,17 @@
           <mat-icon>arrow_right</mat-icon> Ремонты
         </div>
       </mat-list-option>
-      <mat-list-option *ngIf="part!='CLIENT'">
+      <mat-list-option *ngIf="part!='CLIENT' && part!='MASTER'">
         <div class="page__list-options" (click)="selectMasters()">
           <mat-icon>arrow_right</mat-icon> Мастера
         </div>
       </mat-list-option>
-      <mat-list-option *ngIf="part!='CLIENT'">
+      <mat-list-option *ngIf="part!='CLIENT' && part!='MASTER'">
         <div class="page__list-options" (click)="selectClients()">
           <mat-icon>arrow_right</mat-icon> Клиенты
         </div>
       </mat-list-option>
-      <mat-list-option *ngIf="part!='CLIENT'">
+      <mat-list-option *ngIf="part!='CLIENT'&& part!='MASTER'">
         <div class="page__list-options" (click)="selectProducts()">
           <mat-icon>arrow_right</mat-icon> Техника
         </div>
@@ -43,7 +43,7 @@
           <mat-icon>arrow_right</mat-icon> Мои ремонты
         </div>
       </mat-list-option>
-      <mat-list-option *ngIf="part!='ADMIN'">
+      <mat-list-option *ngIf="part!='ADMIN' && part!='MASTER'" >
         <div class="page__list-options" (click)="myProd()">
           <mat-icon>arrow_right</mat-icon> Мои продукты
         </div>

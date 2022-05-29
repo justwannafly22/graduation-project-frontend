@@ -28,10 +28,11 @@ export class ChosenMasterComponent implements OnInit {
 
   initializeForm():void{
     this.mastersFormGroup = this.mastersFormBuiler.group({
-      id:['',Validators.required],
+      id:[''],
       fullName:[''],
       age:[''],
-      contactNumber:['']
+      contactNumber:[''],
+      email:[''],
     });
     this.id = this.persistanceService.get('accountId');
     this.masterService.getMaster(this.id).subscribe(item=>{
@@ -39,7 +40,8 @@ export class ChosenMasterComponent implements OnInit {
       id:this.id,
       fullName:item.fullName,
       age:item.age,
-      contactNumber:item.contactNumber
+      contactNumber:item.contactNumber,
+      email:item.email
     });
     });
   }
@@ -55,7 +57,7 @@ export class ChosenMasterComponent implements OnInit {
     name = name.split(" ");
     console.log("name",name);
     let age = Number(this.mastersFormGroup.value.age);
-    let val:SecondMastersRequestInterface = {name:name[0],surname:name[1],age:age,contactNumber:this.mastersFormGroup.value.contactNumber};
+    let val:MastersRequestInterface = {name:name[0],surname:name[1],age:age,contactNumber:this.mastersFormGroup.value.contactNumber,email:this.mastersFormGroup.value.email};
     console.log("val",val);
     this.masterService.changeMaster(val,this.id).subscribe(item=>{
       console.log("item",item);

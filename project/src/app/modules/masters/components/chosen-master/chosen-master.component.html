@@ -1,49 +1,67 @@
 <div class="page">
   <div class="page__body">
     <form [formGroup]="mastersFormGroup">
-      <ul>
-        <li>
-          <app-description
-            class="page__form-input"
-            formControlName="id"
-            spirit="CONTROLS.Id.id" 
-            disablet="true"
-          ></app-description>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <app-description
-            class="page__form-input"
-            formControlName="fullName"
-            spirit="CONTROLS.FullName.fullName"
-          ></app-description>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <app-description
-            class="page__form-input"
-            formControlName="age"
-            spirit="CONTROLS.Age.age"
-          ></app-description>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <app-description
-            class="page__form-input"
-            formControlName="contactNumber"
-            spirit="CONTROLS.ContactNumber.contactNumber"
-          ></app-description>
-        </li>
-      </ul>
-      <div class="page__footer">
-        <button mat-raised-button color="primary" type="submit" (click)="onSub()">Ok</button>
-        <button mat-stroked-button (click)="back()">Back</button>
-        <button mat-stroked-button (click)="rm()">Delete</button>
-        <button mat-stroked-button (click)="edit()">Edit</button>
-      </div>
-    </form>
+
+        <ul>
+          <li>
+            <app-description
+              class="page__form-input"
+              formControlName="id"
+              spirit="CONTROLS.Id.id"
+            ></app-description>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <app-description
+              class="page__form-input"
+              formControlName="fullName"
+              spirit="CONTROLS.FullName.fullName"
+            ></app-description>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <app-description
+              class="page__form-input"
+              formControlName="age"
+              spirit="CONTROLS.Age.age"
+            ></app-description>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <app-description
+              class="page__form-input"
+              formControlName="contactNumber"
+              spirit="CONTROLS.ContactNumber.contactNumber"
+            ></app-description>
+          </li>
+        </ul>
+        <ul>
+            <li>
+              <app-description
+                class="page__form-input"
+                formControlName="email"
+                spirit="CONTROLS.Email.email"
+              ></app-description>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <app-description
+                class="page__form-input"
+                formControlName="masterId"
+                spirit="CONTROLS.MasterId.masterId"
+              ></app-description>
+            </li>
+          </ul>
+        <div class="page__footer">
+          <button mat-raised-button color="primary" type="submit">Ok</button>
+          <button mat-stroked-button (click)="back()">Back</button>
+          <button mat-stroked-button (click)="rm()">Delete</button>
+          <button mat-stroked-button (click)="edit()">Edit</button>
+        </div>
+      </form>
   </div>
 </div>
