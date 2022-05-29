@@ -81,5 +81,5 @@ export class AuthRegisterComponent implements OnInit {
         });
       })
     });
-  }
+  } 
 }

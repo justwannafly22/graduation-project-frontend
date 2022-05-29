@@ -1,52 +1,38 @@
 <div class="page">
   <div class="page__body">
-    <form [formGroup]="mastersFormGroup">
-      <ul>
-        <li>
+    <form [formGroup]="formGroup" action="" novalidate (ngSubmit)="onSub()">
+      <div class="body">
+        <div class="page__form">
           <app-description
             class="page__form-input"
             formControlName="name"
-            spirit="CONTROLS.FullName.name"
+            spirit="CONTROLS.FullName.firstName"
           ></app-description>
-        </li>
-      </ul>
-      <ul>
-        <li>
           <app-description
             class="page__form-input"
             formControlName="surname"
-            spirit="CONTROLS.FullName.surname"
+            spirit="CONTROLS.FullName.secondName"
           ></app-description>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <app-description
+          <app-size-input
             class="page__form-input"
             formControlName="age"
             spirit="CONTROLS.Age.age"
-          ></app-description>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <app-description
-            class="page__form-input"
+          ></app-size-input>
+          <app-contact-number
             formControlName="contactNumber"
-            spirit="CONTROLS.ContactNumber.contactNumber"
-          ></app-description>
-        </li>
-      </ul>
-      <div class="page__footer">
-        <button
-          mat-raised-button
-          color="primary"
-          type="submit"
-          (click)="onSub()"
-        >
-          Add
-        </button>
-        <button mat-stroked-button (click)="back()">Back</button>
+          ></app-contact-number>
+          <app-email-input
+            class="page__form-input"
+            formControlName="email"
+          ></app-email-input>
+          <app-password-input
+            class="page__form-input"
+            formControlName="password"
+          ></app-password-input>
+        </div>
+      </div>
+      <div class="page__btn">
+        <button mat-raised-button type="submit">ok</button>
       </div>
     </form>
   </div>

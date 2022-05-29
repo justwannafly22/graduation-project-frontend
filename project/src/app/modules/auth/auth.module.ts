@@ -27,7 +27,8 @@ import { AuthServices } from './services/auth.service';
     ReactiveFormsModule,
     MatInputModule,
   ],
-  providers:[AuthServices]
+  providers:[AuthServices],
+  exports:[AuthLoginComponent, AuthRegisterComponent, AuthBasicComponent]
 })
 export class AuthModule {
   constructor(private translateService: TranslateService) {

@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { InputFieldsModule } from 'src/app/shared/components/inputs/input-fields.module';
 import { MasterAddComponent } from './components/master-add/master-add.component';
+import { AuthModule } from '../auth/auth.module';
 
 
 
@@ -22,7 +23,8 @@ import { MasterAddComponent } from './components/master-add/master-add.component
     TableModule,
     RouterModule,
     ReactiveFormsModule,
-    InputFieldsModule
+    InputFieldsModule,
+    AuthModule
 
   ],
   providers:[MastersService],
