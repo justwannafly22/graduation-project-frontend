@@ -17,6 +17,7 @@ import { RepairsService } from '../../services/repairs.service';
 export class ChosenRepComponent implements OnInit {
   public clientsFormGroup!: FormGroup;
   public id!:string;
+  public secondId!:string;
    public status!:any;
 
 
@@ -33,6 +34,7 @@ export class ChosenRepComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+    this.secondId = this.persistanceService.get('id');
     this.id = this.data.user;
   }
 /*  id: string,
@@ -78,8 +80,10 @@ export class ChosenRepComponent implements OnInit {
 
   }
   edit(){
-    let id  = this.persServ.get('id')
-    let val:RepairsResponseInterface = {id:this.id,productId:this.clientsFormGroup.value,name:this.clientsFormGroup.value.name,date:this.clientsFormGroup.value.date,advancedInfo:this.clientsFormGroup.value.advancedInfo,status:this.clientsFormGroup.value.status, masterId:id,clientId:this.clientsFormGroup.value.clientId};
+    //let id  = this.persServ.get('id');
+    console.log('id',this.secondId);
+  
+    let val:RepairsResponseInterface = {id:this.id,productId:this.clientsFormGroup.value,name:this.clientsFormGroup.value.name,date:this.clientsFormGroup.value.date,advancedInfo:this.clientsFormGroup.value.advancedInfo,status:this.clientsFormGroup.value.status, masterId:this.secondId,clientId:this.clientsFormGroup.value.clientId};
     this.repairsService.changeRepair(this.clientsFormGroup.value).subscribe(item=>{
       console.log("item",item);
       this.initializeForm();
