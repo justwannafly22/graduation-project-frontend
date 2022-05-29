@@ -3,7 +3,6 @@ import { Injectable } from "@angular/core";
 import { UntilDestroy, untilDestroyed } from "@ngneat/until-destroy";
 import { map, Observable } from "rxjs";
 import { environment } from "src/app/environments/environment";
-import { MastersRequestInterface } from "src/app/shared/interfaces/masters/masters-request.interface";
 import { MastersResponseInterface } from "src/app/shared/interfaces/masters/masters-response.interface";
 import { SecondMastersRequestInterface } from "src/app/shared/interfaces/masters/second-request.interface";
 
@@ -15,6 +14,11 @@ export class MastersService {
   public getMaster(id: string): Observable<MastersResponseInterface> {
     const url = `${environment.mastersApiUrl}/${id}`;
     return this.http.get<MastersResponseInterface>(url).pipe( untilDestroyed(this),map((response: MastersResponseInterface) => response));
+  }
+
+  public getMasterByAttendeeId(attendeeId: string): Observable<MastersResponseInterface> {
+    const url = `${environment.mastersApiUrl}/${attendeeId}`;
+    return this.http.post<MastersResponseInterface>(url, null).pipe( untilDestroyed(this),map((response: MastersResponseInterface) => response));
   }
 
   public getMasters(): Observable<MastersResponseInterface[]> {
@@ -35,6 +39,7 @@ export class MastersService {
     const url = `${environment.mastersApiUrl}/${id}`;
     return this.http.delete(url);
   }
+  
   public changeMaster(data: SecondMastersRequestInterface,id:string): Observable<MastersResponseInterface> {
     const url = `${environment.mastersApiUrl}/${id}`;
     console.log("с",data,id);
