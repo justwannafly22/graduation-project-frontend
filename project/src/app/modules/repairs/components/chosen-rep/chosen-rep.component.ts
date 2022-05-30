@@ -73,7 +73,10 @@ export class ChosenRepComponent implements OnInit {
     this.id = this.persistanceService.get('accountId');
     console.log('id',this.secondId);
   
-    let val:RepairsResponseInterface = {id:this.id,productId:this.clientsFormGroup.value,name:this.clientsFormGroup.value.name,date:this.clientsFormGroup.value.date,advancedInfo:this.clientsFormGroup.value.advancedInfo,status:this.clientsFormGroup.value.status, masterId:this.secondId,clientId:this.clientsFormGroup.value.clientId};
+    let val:any = {id:this.id,productId:this.clientsFormGroup.value,name:this.clientsFormGroup.value.name,date:this.clientsFormGroup.value.date,advancedInfo:this.clientsFormGroup.value.advancedInfo,status:this.clientsFormGroup.value.status,clientId:this.clientsFormGroup.value.clientId};
+    val.masterId = this.secondId;
+    console.log("val",val);
+    
     this.repairsService.changeRepair(val).subscribe(item=>{
       console.log("item",item);
       this.initializeForm();
