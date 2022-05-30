@@ -34,9 +34,9 @@
         <li>
           <div class="page__main-technic">
             <div class="page__main-technic-choose"*ngIf="part!='CLIENT'">
-              <app-multi-select ></app-multi-select>
+              <app-multi-select  class="page__form-input"></app-multi-select>
             </div>
-            <app-multi-select-product  formControlName="product"
+            <app-multi-select-product  class="page__form-input"  formControlName="product"
             [allList]="listProducts"
             ></app-multi-select-product>
             <!-- <div class="page__main-technic-create">
