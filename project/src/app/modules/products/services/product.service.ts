@@ -22,7 +22,7 @@ export class ProductsService {
   public getProductByClient(
     id: string
   ): Observable<ProductResponseInterface[]> {
-    const url = `${environment.clientsApiUrl}/products/${id}`;
+    const url = `${environment.productApiUrl}`;
     return this.http.get<ProductResponseInterface[]>(url).pipe(
       untilDestroyed(this),
       map((response: ProductResponseInterface[]) => {
