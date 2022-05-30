@@ -25,18 +25,16 @@ export class MyRepComponent implements OnInit {
   ngOnInit(): void {
     console.log("123");
     
-    this.repairsService.getRepairByClient(this.id).subscribe((item) => {
-      if(this.part=='CLIENT'){
-        console.log(item);
-        
-      this.repairss = item;
+    if(this.part=='CLIENT'){
+      this.repairsService.getRepairByClient(this.id).subscribe((item) => {
+        this.repairss = item;
+      });
     }
     else{
       this.repairsService.getRepairsByMaster(this.id).subscribe((item)=>{
-      this.repairss = item})
+        this.repairss = item
+      })
     }
-      
-    });
   }
 
 }
