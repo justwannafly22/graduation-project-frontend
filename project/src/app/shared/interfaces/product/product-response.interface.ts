@@ -1,5 +1,6 @@
 export interface ProductResponseInterface{
   id: string,
   name: string,
-  description:string
+  description:string,
+  clientId: string
 }
