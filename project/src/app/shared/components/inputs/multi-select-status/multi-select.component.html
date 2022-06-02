@@ -1,6 +1,6 @@
 <mat-form-field appearance="fill">
   <mat-label>{{ spirit | translate }}</mat-label>
-  <mat-select [formControl]="control" [(ngModel)]="list" [disabled]="part=='Client'">
+  <mat-select [formControl]="control" [(ngModel)]="list" [disabled]="part=='CLIENT'">
   <!-- </mat-select> [multiple]="multiple" -->
     <mat-option *ngFor="let item of allList" [value]="item.id">
       {{ item.name }}

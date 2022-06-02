@@ -22,8 +22,8 @@ export class ProductsService {
   public getProductByClient(
     id: string
   ): Observable<ProductResponseInterface[]> {
-    const url = `${environment.productApiUrl}`;
-    return this.http.get<ProductResponseInterface[]>(url).pipe(
+    const url = `${environment.clientsApiUrl}/get-products/${id}`;
+    return this.http.post<ProductResponseInterface[]>(url, null).pipe(
       untilDestroyed(this),
       map((response: ProductResponseInterface[]) => {
         return response;

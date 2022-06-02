@@ -21,7 +21,6 @@ export class MyProductComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getProductByClient(this.id).subscribe(item=>{
       console.log('products',this.products);
-      
       this.products = item;
     })
   }

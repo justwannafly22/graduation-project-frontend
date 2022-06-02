@@ -80,14 +80,14 @@ export class DialogVirtualCvComponent {
       productId: this.formGroup.value.product,
       date: this.formGroup.value.date,
       advancedInfo: this.formGroup.value.advancedInfo,
-      status: 'PENDING',
+      status: 'expectation',
       masterId: undefined,
       clientId: this.id,
     };
     this.repairService.addRepair(rep).subscribe((item) => {
       if (this.formGroup.value.diagnostic == true) {
         console.log('diagos');
-        rep.name = 'diagnostick';
+        rep.name = 'диагностика';
         this.repairService.addRepair(rep).subscribe();
       }
     });
