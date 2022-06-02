@@ -24,9 +24,10 @@ import { TableModule } from 'src/app/shared/components/table/table.module';
 import { PersonalAreaaComponent } from './components/personal-areaa/personal-areaa.component';
 import { MyRepComponent } from './components/my-rep/my-rep.component';
 import { MyProductComponent } from './components/main-product/main-product.component';
+import { NeverComponent } from './components/never/never.component';
 
 @NgModule({
-  declarations: [MainComponent, SideBarComponent, MainHeaderComponent, PersonalAreaaComponent,MyRepComponent,MyProductComponent],
+  declarations: [MainComponent, SideBarComponent, MainHeaderComponent, PersonalAreaaComponent,MyRepComponent,MyProductComponent, NeverComponent],
   providers: [ProductsService],
   imports: [
     RouterModule,

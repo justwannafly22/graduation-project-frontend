@@ -49,7 +49,7 @@ export class AuthLoginComponent implements OnInit {
             this.persistanseService.set('fullName', item.fullName);
             this.persistanseService.set('id', item.id);
             this.persistanseService.set('attendeeId', item.attendeeId);
-            this.router.navigate(['/body/clients']);
+            this.router.navigate(['/body/never']);
           });
         }
         else if (role == 'MASTER'){
@@ -60,7 +60,7 @@ export class AuthLoginComponent implements OnInit {
             this.persistanseService.set('contactNumber', item.contactNumber);
             this.persistanseService.set('email', item.email);
             this.persistanseService.set('attendeeId', item.attendeeId);
-            this.router.navigate(['/body/clients']);
+            this.router.navigate(['/body/never']);
           });
           this.persistanseService.set('attendeeId', item.attendeeId);
           this.router.navigate(['/body/masters']);
@@ -68,7 +68,7 @@ export class AuthLoginComponent implements OnInit {
         }
         else { // ADMIN
           this.persistanseService.set('attendeeId', undefined);
-          this.router.navigate(['/body/clients']);
+          this.router.navigate(['/body/never']);
         }
       })
     });

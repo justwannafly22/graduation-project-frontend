@@ -25,6 +25,9 @@ export class DialogForMaster {
     this.user = data.user[0];
     this.initializeForm();
   }
+  back():void{
+    this.dialogRef.close();
+  }
   initializeForm(){
     this.formGroup = this.formBuilder.group({
       name:[''],

@@ -15,12 +15,15 @@ import { MyProductComponent } from './components/main-product/main-product.compo
 
 import { MainComponent } from './components/main/main.component';
 import { MyRepComponent } from './components/my-rep/my-rep.component';
+import { NeverComponent } from './components/never/never.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 const routes: Routes = [
   {
     path: '',
     component: MainComponent,
     children: [
+      {path: 'body/never',
+      component: NeverComponent,},
       {
         path: 'my-repairs',
         component: MyRepComponent,

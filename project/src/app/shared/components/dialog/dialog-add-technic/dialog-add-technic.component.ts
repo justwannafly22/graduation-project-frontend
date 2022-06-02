@@ -45,4 +45,7 @@ export class DialogAddTechnick {
     this.productService.addProduct( {name:this.formGroup.value.name, description:this.formGroup.value.description,clientId:this.id}).subscribe();
     
   }
+  back():void{
+    this.dialogRef.close();
+  }
 }
