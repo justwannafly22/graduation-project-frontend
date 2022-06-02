@@ -15,10 +15,10 @@ export class MainClientsComponent implements OnInit {
   constructor(private clientService:ClientsService, private router : Router) { }
 
   public columns: Columns[] = [
-    { headerName: 'Name', dataField: 'fullName',type: "text"},
-    { headerName: 'Price', dataField: 'age',type: "number"},
-    { headerName: 'Contact Number', dataField: 'contactNumber',type: "text" },
-    { headerName: 'Email', dataField: 'email',type: "text" },
+    { headerName: 'Имя', dataField: 'fullName',type: "text"},
+    { headerName: 'Возраст', dataField: 'age',type: "number"},
+    { headerName: 'Номер телефона', dataField: 'contactNumber',type: "text" },
+    { headerName: 'Почта', dataField: 'email',type: "text" },
     // { headerName: 'Master', dataField: 'masterId',type: "text" },
   ];
   addClient():void{

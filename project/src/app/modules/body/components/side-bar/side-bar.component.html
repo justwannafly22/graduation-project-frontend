@@ -48,6 +48,11 @@
           <mat-icon>arrow_right</mat-icon> Мои продукты
         </div>
       </mat-list-option>
+      <mat-list-option *ngIf="part!='CLIENT' && part!='MASTER'" >
+        <div class="page__list-options" (click)="never()">
+          <mat-icon>arrow_right</mat-icon> Мои продукты
+        </div>
+      </mat-list-option>
     </mat-selection-list>
   </mat-sidenav>
 

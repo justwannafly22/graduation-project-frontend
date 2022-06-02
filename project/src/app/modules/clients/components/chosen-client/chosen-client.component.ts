@@ -33,7 +33,6 @@ export class ChosenClientComponent implements OnInit {
       age:[''],
       contactNumber:[''],
       email:[''],
-      masterId:[''],
     });
     this.id = this.persistanceService.get('accountId');
     this.clientsService.getClient(this.id).subscribe(item=>{

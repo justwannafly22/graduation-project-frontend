@@ -32,7 +32,7 @@ export class MainDetailsComponent implements OnInit {
 
    
   public columns: Columns[] = [
-    { headerName: 'Name', dataField: 'name',type: "text"},
+    { headerName: 'Имя', dataField: 'name',type: "text"},
     { headerName: 'Price', dataField: 'totalPrice',type: "number"},
     { headerName: 'Description', dataField: 'advancedInfo',type: "text" },
   ];

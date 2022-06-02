@@ -30,7 +30,6 @@ export class ClientAddComponent implements OnInit {
       age:[''],
       contactNumber:[''],
       email:[''],
-      masterId:[''],
     });
       }
   onSub():void{

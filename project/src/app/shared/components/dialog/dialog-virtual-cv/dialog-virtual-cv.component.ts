@@ -67,6 +67,9 @@ export class DialogVirtualCvComponent {
     });
     dialogRef.afterClosed().subscribe((result) => {});
   }
+  back():void{
+    this.dialogRef.close();
+  }
   submit(): void {
     /*name: string, +
     date: Date, + 

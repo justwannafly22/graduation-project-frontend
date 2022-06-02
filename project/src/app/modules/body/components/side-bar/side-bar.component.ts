@@ -36,6 +36,9 @@ part:string = this.pers.get('part');
   myProd():void{
     this.router.navigate(['body/my-product']);
   }
+  never():void{
+    this.router.navigate(['body/never']);
+  }
 
   ngOnInit(): void {}
 }
