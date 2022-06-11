@@ -15,9 +15,9 @@ export class MainMastersComponent implements OnInit {
   constructor(private masterService: MastersService, private router:Router) { }
 
   public columns: Columns[] = [
-    { headerName: 'FullName', dataField: 'fullName',type: "text"},
-    { headerName: 'Age', dataField: 'age',type: "number"},
-    { headerName: 'ContactNumber', dataField: 'contactNumber',type: "text" },
+    { headerName: 'ФИО', dataField: 'fullName',type: "text"},
+    { headerName: 'Возраст', dataField: 'age',type: "number"},
+    { headerName: 'Номер телефона', dataField: 'contactNumber',type: "text" },
   ];
   ngOnInit(): void {
     this.masterService.getMasters().subscribe(item=>{

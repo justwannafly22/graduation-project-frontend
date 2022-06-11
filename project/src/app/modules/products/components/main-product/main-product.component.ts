@@ -13,8 +13,8 @@ export class MainProductComponent implements OnInit {
   constructor(private productService : ProductsService) { }
 
   public columns: Columns[] = [
-    { headerName: 'Name', dataField: 'name',type: "text"},
-    { headerName: 'Description', dataField: 'description',type: "text" },
+    { headerName: 'Название', dataField: 'name',type: "text"},
+    { headerName: 'Описание проблемы', dataField: 'description',type: "text" },
   ];
   ngOnInit(): void {
     this.productService.getProducts().subscribe(item=>{

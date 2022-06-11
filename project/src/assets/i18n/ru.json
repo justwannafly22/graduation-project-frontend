@@ -7,7 +7,7 @@
     "back": "Назад"
   },
   "CONTROLS": {
-    "Local": { "local": "Место проведения работ" },
+    "Local": { "local": "Дата" },
     "Diagnostic":{
       "diagnostic":"Диагностика"
     },
@@ -52,7 +52,9 @@
     "DataPicker": {
       "PickerStart": "Выберите дату начала"
     },
-    
+    "Date": {
+      "date": "Дата"
+    },
     "TeamSize": {
       "Size": "Размер команды"
     },
@@ -66,7 +68,7 @@
       "projectRoles": "Роли проекта"
     },
     "Specializations": {
-      "specializations": "Специальзация"
+      "specializations": "Специализация"
     },
     "Responsibilities": {
       "responsibilities": "Обязанности"

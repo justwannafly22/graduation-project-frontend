@@ -33,8 +33,8 @@ export class MainDetailsComponent implements OnInit {
    
   public columns: Columns[] = [
     { headerName: 'Имя', dataField: 'name',type: "text"},
-    { headerName: 'Price', dataField: 'totalPrice',type: "number"},
-    { headerName: 'Description', dataField: 'advancedInfo',type: "text" },
+    { headerName: 'Цена', dataField: 'totalPrice',type: "number"},
+    { headerName: 'Описание', dataField: 'advancedInfo',type: "text" },
   ];
   // newEmployee(): void {
   //   this.router.navigate(['main/employees/add-employee']);
