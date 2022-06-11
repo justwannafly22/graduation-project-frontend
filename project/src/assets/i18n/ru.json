@@ -27,7 +27,7 @@
       "age":"Возраст"
     },
     "ContactNumber":{
-      "contactNumber":"Контакт"
+      "contactNumber":"Номер телефона"
     },
     "Email": {
       "email": "Почта",
